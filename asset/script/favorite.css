@@ -1,0 +1,10 @@
+.favoritebar {
+	width: 40px;
+	margin: 1px;
+	padding: 1px;
+	text-align: center;
+}
+
+.favorite-count {
+	font-size: 0.85em;
+}

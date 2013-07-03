@@ -1,0 +1,22 @@
+<?php $this->css($this->assetModule('css/admin.css')); ?>
+<div class="favorite">
+	<table class="table table-striped table-bordered table-condensed">
+		<tr>
+			<th><?php _e('ID'); ?></th>
+			<th><?php _e('User'); ?></th>
+			<th><?php _e('Module'); ?></th>
+			<th><?php _e('Item'); ?></th>
+			<th><?php _e('Create'); ?></th>
+		</tr>
+		<?php foreach($favorites as $favorite) { ?>
+		<tr>
+			<td><?php echo $this->escape($favorite['id']); ?></td>
+			<td><?php echo $this->escape($favorite['identity']); ?></td>
+			<td><?php echo $this->escape($favorite['module']); ?></td>
+			<td><?php echo $this->escape($favorite['item']); ?></td>
+			<td><?php echo $this->escape($favorite['create']); ?></td>
+		</tr>
+		<?php } ?>
+	</table>
+	<div class="paginator"><?php echo $this->paginationControl($paginator, 'Sliding', 'paginator'); ?></div>
+</div>
