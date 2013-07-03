@@ -1,0 +1,4 @@
+Favorite
+========
+
+Favorite module
