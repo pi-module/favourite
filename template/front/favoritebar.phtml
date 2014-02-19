@@ -1,13 +1,8 @@
-<?php if (empty($favorite)) { return; } ?>
+<?php if (empty($favourite)) { return; } ?>
 <?php 
-	// Add needed js/css files
 	$this->jQuery();
-	$this->bootstrap(array(
-	    'js/bootstrap.min.js',
-	    'css/font-awesome.min.css'
-	));
-	$this->js($this->assetModule('script/favorite.js', 'favorite'));
-	$this->css($this->assetModule('script/favorite.css', 'favorite'));
+	$this->js($this->assetModule('script/favourite.js', 'favourite'));
+	$this->css($this->assetModule('script/favourite.css', 'favourite'));
 ?>
 <div class="favoritebar <?php if(isset($favoriteClass)) {echo $favoriteClass;} ?>">
    <img id="favorite-<?php echo $favorite['module']; ?>-<?php echo $favorite['item']; ?>" onclick="Set_Favorite({to: '<?php echo $favorite['module']; ?>', item: '<?php echo $favorite['item']; ?>', table: '<?php echo $favorite['table']; ?>'}, '<?php echo Pi::url('favorite', true); ?>', '<?php echo $favorite['item']; ?>', '<?php echo $favorite['module']; ?>');" src="<?php if($favorite['is']) { echo $this->assetModule('image/staron.png', 'favorite'); } else { echo $this->assetModule('image/staroff.png', 'favorite'); } ?>" alt="" />

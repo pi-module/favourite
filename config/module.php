@@ -1,71 +1,40 @@
 <?php
 /**
- * Favorite module config
+ * Pi Engine (http://pialog.org)
  *
- * You may not change or alter any portion of this comment or credits
- * of supporting developers from this source code or any supporting source code
- * which is considered copyrighted (c) material of the original comment or credit authors.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- *
- * @copyright       Copyright (c) Pi Engine http://www.xoopsengine.org
- * @license         http://www.xoopsengine.org/license New BSD License
- * @author          Hossein Azizabadi <azizabadi@faragostaresh.com>
- * @since           3.0
- * @package         Module\Favorite
- * @version         $Id$
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
  */
 
 /**
- * Application manifest
+ * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
 return array(
     // Module meta
-    'meta' => array(
-        // Module title, required
-        'title' => __('Favorite'),
-        // Description, for admin, optional
-        'description' => __('Favorite system'),
-        // Version number, required
-        'version' => '1.0.0',
-        // Distribution license, required
-        'license' => 'New BSD',
-        // Logo image, for admin, optional
-        'logo' => 'image/logo.png',
-        // Readme file, for admin, optional
-        'readme' => 'docs/readme.txt',
-        // Demo site link, optional
-        'demo' => 'http://demo.xoopsengine.org/favorite'
+    'meta'         => array(
+        'title'         => __('Favourite'),
+        'description'   => __('Favourite system'),
+        'version'       => '1.1.0',
+        'license'       => 'New BSD',
+        'logo'          => 'image/logo.png',
+        'readme'        => 'docs/readme.txt',
+        'demo'          => 'http://demo.xoopsengine.org/news',
+        'icon'          => 'fa-star',
     ),
     // Author information
-    'author' => array(
-        // Author full name, required
-        'name' => 'Hossein Azizabadi',
-        // Email address, optional
-        'email' => 'azizabadi@faragostaresh.com',
-        // Website link, optional
-        'website' => 'http://www.xoopsengine.org',
-        // Credits and aknowledgement, optional
-        'credits' => 'Zend Framework Team; Pi Engine Team'
+    'author'        => array(
+        'Name'          => 'Hossein Azizabadi',
+        'email'         => 'azizabadi@faragostaresh.com',
+        'website'       => 'http://www.xoopsengine.org',
+        'credits'       => 'Pi Engine Team'
     ),
-    // Module dependency: list of module directory names, optional
-    'dependency' => array(
-    ),
-    // Maintenance actions
-    'maintenance' => array(
-        // resource
-        'resource' => array(
-            // Database meta
-            'database' => 'database.php',
-            // Module configs
-            'config' => 'config.php',
-            // ACL specs
-            'acl'           => 'acl.php',
-            // Bootstrap, priority
-            'bootstrap' => 1,
-            // Navigation definition
-            'navigation' => 'navigation.php',
-        )
+    // resource
+    'resource' => array(
+        'database'      => 'database.php',
+        'config'        => 'config.php',
+        'permission'    => 'permission.php',
+        'page'          => 'page.php',
+        'navigation'    => 'navigation.php',
     )
 );

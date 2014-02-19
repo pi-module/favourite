@@ -10,6 +10,16 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
-    'sqlfile' => 'sql/mysql.sql',
-);
+
+namespace Module\Favourite\Controller\Admin;
+
+use Pi;
+use Pi\Mvc\Controller\ActionController;
+
+class ToolsController extends ActionController
+{
+    public function indexAction()
+    {
+        $this->view()->setTemplate('tools_index');
+    }
+}
