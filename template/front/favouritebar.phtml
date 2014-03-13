@@ -7,7 +7,7 @@
 ?>
 <div class="favouritebar">
 	<a id="favourite-<?php echo $favourite['module']; ?>-<?php echo $favourite['table']; ?>-<?php echo $favourite['item']; ?>" onclick="Set_Favourite({to: '<?php echo $favourite['module']; ?>', table: '<?php echo $favourite['table']; ?>',item: '<?php echo $favourite['item']; ?>'}, '<?php echo Pi::url('favourite', true); ?>', '<?php echo $favourite['item']; ?>', '<?php echo $favourite['table']; ?>', '<?php echo $favourite['module']; ?>');"><i class="fa <?php echo $favourite['icon']; ?>"></i></a>
-	<?php if($favorite['count']) { ?>
+	<?php if(isset($favorite['count']) && $favorite['count']) { ?>
 	<div class="favorite-count"><span class="label label-default"><?php echo _number($favorite['count']); ?></span></div>
 	<?php } ?>
 </div>
