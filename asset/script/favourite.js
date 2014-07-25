@@ -1,4 +1,4 @@
-function Set_Favourite(data, file, item, table, module) {
+function setFavourite(data, file, item, table, module, icon) {
     $.ajax({
         type:"POST",
         url:file,
@@ -7,9 +7,9 @@ function Set_Favourite(data, file, item, table, module) {
         success:function (result) {
             if (result.status == 1) {
                 if (result.is == 1) {
-                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fa fa-star"></i>');
+                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fa fa-' + icon + '"></i>');
                 } else {
-                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fa fa-star-o"></i>');
+                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fa fa-' + icon + '-o"></i>');
                 }		
             } else {
                 $('#favourite-' + module + '-' + table + '-' + item).popover({trigger: 'hover',  placement: 'top', toggle : 'popover', content : result.message, title: result.title, container: 'body'}).popover('show');

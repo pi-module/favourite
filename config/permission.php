@@ -14,7 +14,7 @@ return array(
     // Admin section
     'admin' => array(
         'index'       => array(
-            'title'         => _a('Index'),
+            'title'         => _a('Last favourite'),
             'access'        => array(
                 //'admin',
             ),

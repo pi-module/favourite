@@ -3,12 +3,29 @@
 	$this->jQuery();
 	$this->js($this->assetModule('script/favourite.js', 'favourite'));
 	$this->css($this->assetModule('script/favourite.css', 'favourite'));
-	$favourite['icon'] = ($favourite['is']) ? 'fa-star': 'fa-star-o';
+	$configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
+	switch ($configFavourite['favourite_icon']) {
+		case 'bookmark':
+			$favourite['icon'] = ($favourite['is']) ? 'fa-bookmark': 'fa-bookmark-o';
+			$favourite['iconbar'] = 'bookmark';
+			break;
+
+		case 'heart':
+			$favourite['icon'] = ($favourite['is']) ? 'fa-heart': 'fa-heart-o';
+			$favourite['iconbar'] = 'heart';
+			break;
+		
+		case 'star':
+		default:
+			$favourite['icon'] = ($favourite['is']) ? 'fa-star': 'fa-star-o';
+			$favourite['iconbar'] = 'star';
+			break;
+	}
 ?>
 <div class="favouritebar">
-	<a id="favourite-<?php echo $favourite['module']; ?>-<?php echo $favourite['table']; ?>-<?php echo $favourite['item']; ?>" onclick="Set_Favourite({to: '<?php echo $favourite['module']; ?>', table: '<?php echo $favourite['table']; ?>',item: '<?php echo $favourite['item']; ?>'}, '<?php echo Pi::url('favourite', true); ?>', '<?php echo $favourite['item']; ?>', '<?php echo $favourite['table']; ?>', '<?php echo $favourite['module']; ?>');"><i class="fa <?php echo $favourite['icon']; ?>"></i></a>
-	<?php if(isset($favorite['count']) && $favorite['count']) { ?>
+	<a id="favourite-<?php echo $favourite['module']; ?>-<?php echo $favourite['table']; ?>-<?php echo $favourite['item']; ?>" 
+		onclick="setFavourite({to: '<?php echo $favourite['module']; ?>', table: '<?php echo $favourite['table']; ?>',item: '<?php echo $favourite['item']; ?>'}, '<?php echo Pi::url('favourite', true); ?>', '<?php echo $favourite['item']; ?>', '<?php echo $favourite['table']; ?>', '<?php echo $favourite['module']; ?>', '<?php echo $favourite['iconbar']; ?>');"><i class="fa <?php echo $favourite['icon']; ?>"></i></a>
+	<?php if($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
 	<div class="favorite-count"><span class="label label-default"><?php echo _number($favorite['count']); ?></span></div>
 	<?php } ?>
 </div>
-

@@ -1,0 +1,121 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Favourite\n"
+"POT-Creation-Date: 2014-07-25 17:23+0330\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _a;_t\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /var/www/html/local/pi/pi-release-2.4.0/usr/module/"
+"favourite\n"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/permission.php:17
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/navigation.php:16
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/page.php:17
+msgid "Last favourite"
+msgstr "آخرین علاقه مندی ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/permission.php:23
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/navigation.php:25
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/page.php:22
+msgid "Tools"
+msgstr "ابزار"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/module.php:16
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:20
+msgid "Favourite"
+msgstr "علاقه مندی ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/module.php:17
+msgid "Favourite system"
+msgstr "فهرست علاقه مندی ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:16
+msgid "Admin"
+msgstr "مدیریت"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:28
+msgid "Perpage"
+msgstr "تعداد در هر صفحه"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:36
+msgid "Favourite count"
+msgstr "تعداد علاقه مندی ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:37
+msgid "Count of X last favourite for show in admin"
+msgstr "تعداد X علاقه مندی آخر برای نمایش در صفحات مدیریت"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:45
+msgid "Delay time"
+msgstr "زمان تاخیر"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:46
+msgid ""
+"Delay time between two favourite for each user. According to second, Set 0 "
+"for cancel check"
+msgstr ""
+"زمان تاخیر بین دو ثبت علاقه مندی برای هر کاربر، بر اساس ثانیه. برای لغو "
+"بررسی 0 تنظیم شود"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:52
+msgid "Icon"
+msgstr "آیکن"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:58
+msgid "Star"
+msgstr "ستاره"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:59
+msgid "Heart"
+msgstr "قلب"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:60
+msgid "Bookmark"
+msgstr "بوکمارک"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/config/config.php:70
+msgid "Show count"
+msgstr "نمایش تعداد"
+
+#~ msgid "Index"
+#~ msgstr "صفحه اصلی"
+
+#~ msgid "Error to make favourite"
+#~ msgstr "خطا در اضافه به فهرست علاقه مندی ها"
+
+#~ msgid "Please login for make favourite"
+#~ msgstr "لطفا برای اضافه کردن این مورد به فهرست علاقه مندی ها وارد سایت شوید"
+
+#~ msgid "You can make favourite after %s second"
+#~ msgstr ""
+#~ "شما میتوانید بعد از %s ثانیه یک مورد جدید  به فهرست علاقه مندی ها اضافه "
+#~ "کنید"
+
+#~ msgid "ID"
+#~ msgstr "شناسه"
+
+#~ msgid "User"
+#~ msgstr "کاربر"
+
+#~ msgid "Module"
+#~ msgstr "ماژول"
+
+#~ msgid "Table"
+#~ msgstr "جدول"
+
+#~ msgid "Item"
+#~ msgstr "آیتم"
+
+#~ msgid "Ip"
+#~ msgstr "آی پی"
+
+#~ msgid "Create"
+#~ msgstr "ایجاد"

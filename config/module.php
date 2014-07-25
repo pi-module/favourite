@@ -13,13 +13,13 @@
 return array(
     // Module meta
     'meta'         => array(
-        'title'         => __('Favourite'),
-        'description'   => __('Favourite system'),
-        'version'       => '1.1.0',
+        'title'         => _a('Favourite'),
+        'description'   => _a('Favourite system'),
+        'version'       => '1.2.0',
         'license'       => 'New BSD',
         'logo'          => 'image/logo.png',
         'readme'        => 'docs/readme.txt',
-        'demo'          => 'http://demo.xoopsengine.org/news',
+        'demo'          => 'http://',
         'icon'          => 'fa-star',
     ),
     // Author information
@@ -29,12 +29,12 @@ return array(
         'website'       => 'http://www.xoopsengine.org',
         'credits'       => 'Pi Engine Team'
     ),
-    // resource
+    // Resource
     'resource' => array(
         'database'      => 'database.php',
         'config'        => 'config.php',
         'permission'    => 'permission.php',
         'page'          => 'page.php',
         'navigation'    => 'navigation.php',
-    )
+    ),
 );
