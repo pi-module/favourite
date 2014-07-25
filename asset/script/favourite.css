@@ -9,6 +9,7 @@
 .favouritebar a {
 	color: #F2B900;
 	font-size: 25px;
+	cursor: pointer;
 }
 
 .favouritebar a:hover {
