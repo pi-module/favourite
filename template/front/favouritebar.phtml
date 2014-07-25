@@ -3,6 +3,7 @@
 	$this->jQuery();
 	$this->js($this->assetModule('script/favourite.js', 'favourite'));
 	$this->css($this->assetModule('script/favourite.css', 'favourite'));
+	$favourite['htmlId'] = sprintf('favourite-%s-%s-%s', $favourite['module'] ,$favourite['table'], $favourite['item']);
 	$configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
 	switch ($configFavourite['favourite_icon']) {
 		case 'bookmark':
@@ -21,11 +22,12 @@
 			$favourite['iconbar'] = 'star';
 			break;
 	}
+	$favourite['tooltip'] = ($favourite['is']) ? __('Remove favourite') : __('Declare as favourite');
 ?>
 <div class="favouritebar">
-	<a id="favourite-<?php echo $favourite['module']; ?>-<?php echo $favourite['table']; ?>-<?php echo $favourite['item']; ?>" 
-		onclick="setFavourite({to: '<?php echo $favourite['module']; ?>', table: '<?php echo $favourite['table']; ?>',item: '<?php echo $favourite['item']; ?>'}, '<?php echo Pi::url('favourite', true); ?>', '<?php echo $favourite['item']; ?>', '<?php echo $favourite['table']; ?>', '<?php echo $favourite['module']; ?>', '<?php echo $favourite['iconbar']; ?>');"><i class="fa <?php echo $favourite['icon']; ?>"></i></a>
+	<a data-toggle="tooltip" data-placement="top" title="<?php echo $favourite['tooltip']; ?>" id="<?php echo $favourite['htmlId']; ?>" onclick="setFavourite({to: '<?php echo $favourite['module']; ?>', table: '<?php echo $favourite['table']; ?>',item: '<?php echo $favourite['item']; ?>'}, '<?php echo Pi::url('favourite', true); ?>', '<?php echo $favourite['item']; ?>', '<?php echo $favourite['table']; ?>', '<?php echo $favourite['module']; ?>', '<?php echo $favourite['iconbar']; ?>');"><i class="fa <?php echo $favourite['icon']; ?>"></i></a>
 	<?php if($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
 	<div class="favorite-count"><span class="label label-default"><?php echo _number($favorite['count']); ?></span></div>
 	<?php } ?>
 </div>
+<script type="text/javascript">$("#<?php echo $favourite['htmlId']; ?>").tooltip()</script>
