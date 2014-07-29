@@ -1,0 +1,76 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Favourite\n"
+"POT-Creation-Date: 2014-07-29 14:28+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marc Desrousseaux\n"
+"Language-Team: Marc\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: C:\\Users\\LAPTOP MARC\\Documents\\GitHub\\favourite\n"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/src/Api/Favourite.php:58
+#: MARC\Documents\GitHub\favourite/src/Api/Favourite.php:94
+msgid "Error to make favourite"
+msgstr "Une erreur est survenue lors de la création du favori"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/src/Api/Favourite.php:59
+msgid "Please login for make favourite"
+msgstr "Merci de vous connecter pour ajouter un favori"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/src/Api/Favourite.php:95
+#, php-format
+msgid "You can make favourite after %s second"
+msgstr "Vous pouvez ajouter un favoris dans %s secondes"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/admin/index_index.phtml:5
+msgid "ID"
+msgstr "N°"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/admin/index_index.phtml:6
+msgid "User"
+msgstr "Utilisateur"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/admin/index_index.phtml:7
+msgid "Module"
+msgstr "Module"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/admin/index_index.phtml:8
+msgid "Table"
+msgstr "Table"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/admin/index_index.phtml:9
+msgid "Item"
+msgstr "Elément"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/admin/index_index.phtml:10
+msgid "Ip"
+msgstr "IP"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/admin/index_index.phtml:11
+msgid "Create"
+msgstr "Créer"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/front/favouritebar.phtml:25
+msgid "Remove favourite"
+msgstr "Supprimer le favori"
+
+#: C:\Users\LAPTOP
+#: MARC\Documents\GitHub\favourite/template/front/favouritebar.phtml:25
+msgid "Declare as favourite"
+msgstr "Ajouter aux favoris"

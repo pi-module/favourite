@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Favourite\n"
+"POT-Creation-Date: 2014-07-29 14:24+0100\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Marc Desrousseaux\n"
+"Language-Team: Marc\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.7\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: _a;_t\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SearchPath-0: C:\\Users\\LAPTOP MARC\\Documents\\GitHub\\favourite\n"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:16
+msgid "Admin"
+msgstr "Admin"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:20
+#: MARC\Documents\GitHub\favourite/config/module.php:16
+msgid "Favourite"
+msgstr "Favoris"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:28
+msgid "Perpage"
+msgstr "Par Page"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:36
+msgid "Favourite count"
+msgstr "Nombre Favoris"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:37
+msgid "Count of X last favourite for show in admin"
+msgstr "Compter les X derniers favoris à afficher côté Admin"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:45
+msgid "Delay time"
+msgstr "Durée du délai"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:46
+msgid ""
+"Delay time between two favourite for each user. According to second, Set 0 "
+"for cancel check"
+msgstr ""
+"Délai entre deux favoris pour chaque utilisateur. Paramétré en secondes, "
+"définir à 0 pour annuler le contrôle"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:52
+msgid "Icon"
+msgstr "Icône"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:58
+msgid "Star"
+msgstr "Etoile"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:59
+msgid "Heart"
+msgstr "Coeur"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:60
+msgid "Bookmark"
+msgstr "Bookmarquer"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/config.php:70
+msgid "Show count"
+msgstr "Afficher le nombre"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/module.php:17
+msgid "Favourite system"
+msgstr "Module de gestion de Favoris"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/navigation.php:16
+#: MARC\Documents\GitHub\favourite/config/page.php:17
+#: MARC\Documents\GitHub\favourite/config/permission.php:17
+msgid "Last favourite"
+msgstr "Derniers favoris"
+
+#: C:\Users\LAPTOP MARC\Documents\GitHub\favourite/config/navigation.php:25
+#: MARC\Documents\GitHub\favourite/config/page.php:22
+#: MARC\Documents\GitHub\favourite/config/permission.php:23
+msgid "Tools"
+msgstr "Outils"
