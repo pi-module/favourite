@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Favourite\n"
-"POT-Creation-Date: 2014-07-25 16:58+0330\n"
+"POT-Creation-Date: 2014-09-12 16:30+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -59,8 +59,13 @@ msgstr "آی پی"
 msgid "Create"
 msgstr "تاریخ ایجاد"
 
-#~ msgid "Last favourite"
-#~ msgstr "آخرین علاقه مندی ها"
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/front/favouritebar.phtml:25
+msgid "Remove favourite"
+msgstr "حذف از فهرست علاقه مندی ها"
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/front/favouritebar.phtml:25
+msgid "Declare as favourite"
+msgstr "اضافه به فهرست علاقه مندی ها"
 
 #~ msgid "Tools"
 #~ msgstr "ابزار"

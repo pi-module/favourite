@@ -1,9 +1,16 @@
 <?php if (empty($favourite)) { return; } ?>
 <?php 
+    // Load language file
+	Pi::service('i18n')->load(array('module/favourite', 'default'));
+	// Load jQuery
 	$this->jQuery();
+	// Load js files
 	$this->js($this->assetModule('script/favourite.js', 'favourite'));
+	// Load css files
 	$this->css($this->assetModule('script/favourite.css', 'favourite'));
+	// Set html id
 	$favourite['htmlId'] = sprintf('favourite-%s-%s-%s', $favourite['module'] ,$favourite['table'], $favourite['item']);
+	// Set icon
 	$configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
 	switch ($configFavourite['favourite_icon']) {
 		case 'bookmark':
@@ -22,6 +29,7 @@
 			$favourite['iconbar'] = 'star';
 			break;
 	}
+	// Set tooltip text
 	$favourite['tooltip'] = ($favourite['is']) ? __('Remove favourite') : __('Declare as favourite');
 ?>
 <div class="favouritebar">
@@ -30,4 +38,4 @@
 	<div class="favorite-count"><span class="label label-default"><?php echo _number($favorite['count']); ?></span></div>
 	<?php } ?>
 </div>
-<script type="text/javascript">$("#<?php echo $favourite['htmlId']; ?>").tooltip()</script>
+<script>$("#<?php echo $favourite['htmlId']; ?>").tooltip()</script>
