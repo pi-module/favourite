@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Favourite\n"
-"POT-Creation-Date: 2014-09-12 16:35+0330\n"
+"POT-Creation-Date: 2014-12-07 16:32+0330\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -30,6 +30,14 @@ msgstr ""
 msgid "You can make favourite after %s second"
 msgstr ""
 
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/front/favouritebar.phtml:33
+msgid "Remove favourite"
+msgstr ""
+
+#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/front/favouritebar.phtml:33
+msgid "Declare as favourite"
+msgstr ""
+
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/admin/index_index.phtml:5
 msgid "ID"
 msgstr ""
@@ -56,12 +64,4 @@ msgstr ""
 
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/admin/index_index.phtml:11
 msgid "Create"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/front/favouritebar.phtml:33
-msgid "Remove favourite"
-msgstr ""
-
-#: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/front/favouritebar.phtml:33
-msgid "Declare as favourite"
 msgstr ""

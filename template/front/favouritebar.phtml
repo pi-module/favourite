@@ -5,7 +5,7 @@
 	// Load jQuery
 	$this->jQuery();
 	// Load js files
-	$this->js($this->assetModule('script/favourite.js', 'favourite'));
+	$this->js($this->assetModule('script/favourite.min.js', 'favourite'));
 	// Load css files
 	$this->css($this->assetModule('script/favourite.css', 'favourite'));
 	// Set html id
@@ -29,13 +29,35 @@
 			$favourite['iconbar'] = 'star';
 			break;
 	}
+	// Set class
+	$favouriteClass = isset($favourite['class']) ? $favourite['class'] : '';
 	// Set tooltip text
 	$favourite['tooltip'] = ($favourite['is']) ? __('Remove favourite') : __('Declare as favourite');
+    // Set js
+    $js =<<<'EOT'
+$("#%s").tooltip();
+EOT;
+    $js = sprintf($js, $favourite['htmlId']);
+    $this->footScript()->appendScript($js);
+    // Set onclick
+    $onclick =<<<'EOT'
+setFavourite('%s', '%s', '%s', '%s', '%s');
+EOT;
+    $onclick = sprintf($onclick, 
+    	Pi::url('favourite', true), 
+    	$favourite['item'], 
+    	$favourite['table'], 
+    	$favourite['module'], 
+    	$favourite['iconbar']
+    );
 ?>
-<div class="favouritebar">
-	<a data-toggle="tooltip" data-placement="top" title="<?php echo $favourite['tooltip']; ?>" id="<?php echo $favourite['htmlId']; ?>" onclick="setFavourite({to: '<?php echo $favourite['module']; ?>', table: '<?php echo $favourite['table']; ?>',item: '<?php echo $favourite['item']; ?>'}, '<?php echo Pi::url('favourite', true); ?>', '<?php echo $favourite['item']; ?>', '<?php echo $favourite['table']; ?>', '<?php echo $favourite['module']; ?>', '<?php echo $favourite['iconbar']; ?>');"><i class="fa <?php echo $favourite['icon']; ?>"></i></a>
-	<?php if($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
-	<div class="favorite-count"><span class="label label-default"><?php echo _number($favorite['count']); ?></span></div>
+<div class="favouritebar <?php echo $favouriteClass; ?>">
+	<a data-toggle="tooltip" data-placement="top" title="<?php echo $favourite['tooltip']; ?>" id="<?php echo $favourite['htmlId']; ?>" onclick="<?php echo $onclick; ?>">
+		<i class="fa <?php echo $favourite['icon']; ?>"></i>
+	</a>
+    <?php if($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
+	<div class="favorite-count">
+		<span class="label label-default"><?php echo _number($favorite['count']); ?></span>
+	</div>
 	<?php } ?>
 </div>
-<script>$("#<?php echo $favourite['htmlId']; ?>").tooltip()</script>

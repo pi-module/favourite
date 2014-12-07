@@ -12,25 +12,25 @@
  */
 return array(
     // Module meta
-    'meta'         => array(
+    'meta'          => array(
         'title'         => _a('Favourite'),
         'description'   => _a('Favourite system'),
-        'version'       => '1.2.0',
+        'version'       => '1.2.1',
         'license'       => 'New BSD',
         'logo'          => 'image/logo.png',
         'readme'        => 'docs/readme.txt',
-        'demo'          => 'http://',
+        'demo'          => 'http://pialog',
         'icon'          => 'fa-star',
     ),
     // Author information
     'author'        => array(
         'Name'          => 'Hossein Azizabadi',
         'email'         => 'azizabadi@faragostaresh.com',
-        'website'       => 'http://www.xoopsengine.org',
+        'website'       => 'http://pialog',
         'credits'       => 'Pi Engine Team'
     ),
     // Resource
-    'resource' => array(
+    'resource'      => array(
         'database'      => 'database.php',
         'config'        => 'config.php',
         'permission'    => 'permission.php',

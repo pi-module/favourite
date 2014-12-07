@@ -1,8 +1,15 @@
-function setFavourite(data, file, item, table, module, icon) {
+/**
+ * Pi Engine (http://pialog.org)
+ *
+ * @link            http://code.pialog.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://pialog.org
+ * @license         http://pialog.org/license.txt New BSD License
+ */
+function setFavourite(file, item, table, module, icon) {
     $.ajax({
         type:"POST",
         url:file,
-        data:data,
+        data: {to: module, table: table,item: item},
         dataType: "json",
         success:function (result) {
             if (result.status == 1) {
