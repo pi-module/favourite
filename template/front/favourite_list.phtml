@@ -1,0 +1,37 @@
+<div class="clearfix">
+    <div class="page-header">
+        <h1><?php echo $this->escape($title); ?></h1>
+    </div>
+    <?php if ($uid > 0) { ?>
+    <?php if (!empty($favourites)) { ?>
+    <div class="panel panel-default pi-panel-tab">
+        <div class="panel-heading">
+        	<ul class="pi-panel-tab-indicators">
+        		<?php foreach ($favourites as $favourite) { ?>
+        		<li<?php if ($favourite['name'] == 'news') { echo ' class="active"'; } ?>>
+        			<a aria-expanded="true" href="#" data-toggle="tab" data-target="#panel-<?php echo $favourite['name']; ?>"><?php echo $favourite['title']; ?></a>
+        		</li>
+        		<?php } ?>
+        	</ul>
+        </div>
+        <div class="panel-body tab-content">
+        	<?php foreach ($favourites as $favourite) { ?>
+        	<div class="tab-pane<?php if ($favourite['name'] == 'news') { echo ' active'; } ?>" id="panel-<?php echo $favourite['name']; ?>">
+        		<div class="well"><?php echo $favourite['message']; ?></div>
+        	</div>
+        	<?php } ?>
+        </div>
+    </div> 
+    <?php } else { ?>
+    <div class="alert alert-danger" role="alert">
+    	<h2><?php _e('Error to show list'); ?></h2>
+    	<p><?php _e('You favourites list is empty'); ?></p>
+    </div>
+    <?php } ?>
+    <?php } else { ?>
+    <div class="alert alert-danger" role="alert">
+    	<h2><?php _e('Error to show list'); ?></h2>
+    	<p><?php _e('You should login before see list of your favourites'); ?></p>
+    </div>
+    <?php } ?>
+</div>

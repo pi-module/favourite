@@ -17,6 +17,7 @@ use Pi;
 use Pi\Application\Api\AbstractApi;
 
 /*
+ * Pi::api('favourite', 'favourite')->listFavourite();
  * Pi::api('favourite', 'favourite')->doFavourite($params);
  * Pi::api('favourite', 'favourite')->loadFavourite($module, $table, $item);
  * Pi::api('favourite', 'favourite')->userFavourite($uid, $module);
@@ -24,6 +25,46 @@ use Pi\Application\Api\AbstractApi;
 
 class Favourite extends AbstractApi
 {
+    public function listFavourite()
+    {
+        $list = array();
+
+        // Set news favourite
+        if (Pi::service('module')->isActive('news')) {
+            $item = array(
+                'name'     => 'news',
+                'title'    => 'News',
+                'info'     => array(),
+                'message'  => __('List is empty on news module'),
+            );
+            $list[''] = $item;
+        }
+
+        // Set shop favourite
+        if (!Pi::service('module')->isActive('shop')) {
+            $item = array(
+                'name'     => 'shop',
+                'title'    => 'Shop',
+                'info'     => array(),
+                'message'  => __('List is empty on shop module'),
+            );
+            $list[] = $item;
+        }
+
+        // Set guide favourite
+        if (!Pi::service('module')->isActive('guide')) {
+            $item = array(
+                'name'     => 'guide',
+                'title'    => 'Guide',
+                'info'     => array(),
+                'message'  => __('List is empty on guide module'),
+            );
+            $list[] = $item;
+        }
+
+        return $list;
+    }
+
     public function loadFavourite($module, $table, $item)
     {
         $uid = Pi::user()->getId();
