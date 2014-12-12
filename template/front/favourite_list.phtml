@@ -4,6 +4,7 @@
     </div>
     <?php if ($uid > 0) { ?>
     <?php if (!empty($favourites)) { ?>
+    <div class"well"><?php _e('You will find below the list of items you picked up as favorite, for later usage '); ?></div>
     <div class="panel panel-default pi-panel-tab">
         <div class="panel-heading">
         	<ul class="pi-panel-tab-indicators">
@@ -17,21 +18,24 @@
         <div class="panel-body tab-content">
         	<?php foreach ($favourites as $favourite) { ?>
         	<div class="tab-pane<?php if ($favourite['name'] == 'news') { echo ' active'; } ?>" id="panel-<?php echo $favourite['name']; ?>">
-        		<div class="well"><?php echo $favourite['message']; ?></div>
+        		<div class="well">
+                    <h2><?php echo $favourite['title']; ?></h2>
+                    <?php echo $favourite['message']; ?>
+                </div>
         	</div>
         	<?php } ?>
         </div>
     </div> 
     <?php } else { ?>
     <div class="alert alert-danger" role="alert">
-    	<h2><?php _e('Error to show list'); ?></h2>
-    	<p><?php _e('You favourites list is empty'); ?></p>
+    	<h4><?php _e('There is no favorite to display'); ?></h4>
+    	<p><?php _e('You have not yet used the favorite feature. Try it !'); ?></p>
     </div>
     <?php } ?>
     <?php } else { ?>
     <div class="alert alert-danger" role="alert">
-    	<h2><?php _e('Error to show list'); ?></h2>
-    	<p><?php _e('You should login before see list of your favourites'); ?></p>
+    	<h4><?php _e('You dont have access to this area - Permission denied'); ?></h4>
+    	<p><?php _e('You have to login first to be able to manage your favorites'); ?></p>
     </div>
     <?php } ?>
 </div>

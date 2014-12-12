@@ -35,7 +35,7 @@ class Favourite extends AbstractApi
                 'name'     => 'news',
                 'title'    => 'News',
                 'info'     => array(),
-                'message'  => __('List is empty on news module'),
+                'message'  => sprintf(__('You have not yet picked up items in %s module'), 'News'),
             );
             $list[''] = $item;
         }
@@ -46,7 +46,7 @@ class Favourite extends AbstractApi
                 'name'     => 'shop',
                 'title'    => 'Shop',
                 'info'     => array(),
-                'message'  => __('List is empty on shop module'),
+                'message'  => sprintf(__('You have not yet picked up items in %s module'), 'Shop'),
             );
             $list[] = $item;
         }
@@ -57,7 +57,7 @@ class Favourite extends AbstractApi
                 'name'     => 'guide',
                 'title'    => 'Guide',
                 'info'     => array(),
-                'message'  => __('List is empty on guide module'),
+                'message'  => sprintf(__('You have not yet picked up items in %s module'), 'Guide'),
             );
             $list[] = $item;
         }

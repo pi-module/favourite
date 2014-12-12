@@ -39,7 +39,7 @@ class IndexController extends ActionController
             $this->view()->headdescription(__('List of user favourites'), 'set');
             $this->view()->headkeywords(__('list,user,favourite,website'), 'set');
             $this->view()->setTemplate('favourite_list');
-            $this->view()->assign('title', __('Favourite'));
+            $this->view()->assign('title', __('All your favorite'));
             $this->view()->assign('favourites', $favourites);
             $this->view()->assign('uid', $uid);
         }
