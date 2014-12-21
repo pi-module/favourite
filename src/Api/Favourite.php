@@ -20,7 +20,7 @@ use Pi\Application\Api\AbstractApi;
  * Pi::api('favourite', 'favourite')->listFavourite();
  * Pi::api('favourite', 'favourite')->doFavourite($params);
  * Pi::api('favourite', 'favourite')->loadFavourite($module, $table, $item);
- * Pi::api('favourite', 'favourite')->userFavourite($uid, $module);
+ * Pi::api('favourite', 'favourite')->userFavourite($uid, $module, $limit);
  */
 
 class Favourite extends AbstractApi
@@ -34,30 +34,36 @@ class Favourite extends AbstractApi
             $item = array(
                 'name'     => 'news',
                 'title'    => 'News',
-                'info'     => array(),
+                'list'     => Pi::api('story', 'news')->FavoriteList(),
                 'message'  => sprintf(__('You have not yet picked up items in %s module'), 'News'),
+                'moreUrl'  => '#',
+                'printUrl' => '#',
             );
             $list[''] = $item;
         }
 
         // Set shop favourite
-        if (!Pi::service('module')->isActive('shop')) {
+        if (Pi::service('module')->isActive('shop')) {
             $item = array(
                 'name'     => 'shop',
                 'title'    => 'Shop',
-                'info'     => array(),
+                'list'     => Pi::api('product', 'shop')->FavoriteList(),
                 'message'  => sprintf(__('You have not yet picked up items in %s module'), 'Shop'),
+                'moreUrl'  => '#',
+                'printUrl' => '#',
             );
             $list[] = $item;
         }
 
         // Set guide favourite
-        if (!Pi::service('module')->isActive('guide')) {
+        if (Pi::service('module')->isActive('guide')) {
             $item = array(
                 'name'     => 'guide',
                 'title'    => 'Guide',
-                'info'     => array(),
+                'list'     => Pi::api('item', 'guide')->FavoriteList(),
                 'message'  => sprintf(__('You have not yet picked up items in %s module'), 'Guide'),
+                'moreUrl'  => '#',
+                'printUrl' => '#',
             );
             $list[] = $item;
         }
@@ -77,16 +83,20 @@ class Favourite extends AbstractApi
         return 0;
     }
     
-    public function userFavourite($uid, $module)
+    public function userFavourite($uid, $module, $limit = 0)
     {
-        $item = array();
+        $list = array();
         $where = array('uid' => $uid, 'module' => $module);
         $select = Pi::model('list', $this->getModule())->select()->where($where);
+        if ($limit > 0) {
+            $select->limit($limit);
+            $select->order(array('time_create ASC', 'id ASC'));
+        }
         $rowset = Pi::model('list', $this->getModule())->selectWith($select);
         foreach ($rowset as $row) {
-		        $item[] = $row->item;
+		    $list[] = $row->item;
         }	
-        return $item;
+        return $list;
     }
 
     public function doFavourite($params)
