@@ -56,7 +56,7 @@ class IndexController extends ActionController
             )),
         ));
         // Set view
-        $this->view()->setTemplate('index_index');
+        $this->view()->setTemplate('index-index');
         $this->view()->assign('list', $list);
         $this->view()->assign('paginator', $paginator);
     }

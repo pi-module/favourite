@@ -15,7 +15,7 @@ return array(
     'meta' => array(
         'title' => _a('Favourite'),
         'description' => _a('Favourite system'),
-        'version' => '1.2.1',
+        'version' => '1.2.2',
         'license' => 'New BSD',
         'logo' => 'image/logo.png',
         'readme' => 'docs/readme.txt',

@@ -39,7 +39,7 @@ class Favourite extends AbstractApi
                 'moreUrl' => '#',
                 'printUrl' => '#',
             );
-            $list[''] = $item;
+            $list[] = $item;
         }
 
         // Set shop favourite
