@@ -14,14 +14,14 @@ return array(
     // Admin section
     'admin' => array(
         array(
-            'title'         => _a('Last favourite'),
-            'controller'    => 'index',
-            'permission'    => 'index',
+            'title' => _a('Last favourite'),
+            'controller' => 'index',
+            'permission' => 'index',
         ),
         array(
-            'title'         => _a('Tools'),
-            'controller'    => 'tools',
-            'permission'    => 'tools',
+            'title' => _a('Tools'),
+            'controller' => 'tools',
+            'permission' => 'tools',
         ),
     ),
 );

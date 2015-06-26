@@ -12,23 +12,23 @@
  */
 return array(
     'admin' => array(
-        'last'       => array(
-            'label'        => _a('Last favourite'),
-            'permission'   => array(
+        'last' => array(
+            'label' => _a('Last favourite'),
+            'permission' => array(
                 'resource' => 'index',
             ),
-            'route'        => 'admin',
-            'controller'   => 'index',
-            'action'       => 'index',
+            'route' => 'admin',
+            'controller' => 'index',
+            'action' => 'index',
         ),
-        'tools'      => array(
-            'label'        => _a('Tools'),
-            'permission'   => array(
+        'tools' => array(
+            'label' => _a('Tools'),
+            'permission' => array(
                 'resource' => 'tools',
             ),
-            'route'        => 'admin',
-            'controller'   => 'tools',
-            'action'       => 'index',
+            'route' => 'admin',
+            'controller' => 'tools',
+            'action' => 'index',
         ),
     ),
 );

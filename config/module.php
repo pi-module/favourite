@@ -12,29 +12,29 @@
  */
 return array(
     // Module meta
-    'meta'          => array(
-        'title'         => _a('Favourite'),
-        'description'   => _a('Favourite system'),
-        'version'       => '1.2.1',
-        'license'       => 'New BSD',
-        'logo'          => 'image/logo.png',
-        'readme'        => 'docs/readme.txt',
-        'demo'          => 'http://pialog',
-        'icon'          => 'fa-star',
+    'meta' => array(
+        'title' => _a('Favourite'),
+        'description' => _a('Favourite system'),
+        'version' => '1.2.1',
+        'license' => 'New BSD',
+        'logo' => 'image/logo.png',
+        'readme' => 'docs/readme.txt',
+        'demo' => 'http://pialog',
+        'icon' => 'fa-star',
     ),
     // Author information
-    'author'        => array(
-        'Name'          => 'Hossein Azizabadi',
-        'email'         => 'azizabadi@faragostaresh.com',
-        'website'       => 'http://pialog',
-        'credits'       => 'Pi Engine Team'
+    'author' => array(
+        'Name' => 'Hossein Azizabadi',
+        'email' => 'azizabadi@faragostaresh.com',
+        'website' => 'http://pialog',
+        'credits' => 'Pi Engine Team'
     ),
     // Resource
-    'resource'      => array(
-        'database'      => 'database.php',
-        'config'        => 'config.php',
-        'permission'    => 'permission.php',
-        'page'          => 'page.php',
-        'navigation'    => 'navigation.php',
+    'resource' => array(
+        'database' => 'database.php',
+        'config' => 'config.php',
+        'permission' => 'permission.php',
+        'page' => 'page.php',
+        'navigation' => 'navigation.php',
     ),
 );

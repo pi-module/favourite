@@ -13,16 +13,14 @@
 return array(
     // Admin section
     'admin' => array(
-        'index'       => array(
-            'title'         => _a('Last favourite'),
-            'access'        => array(
-                //'admin',
+        'index' => array(
+            'title' => _a('Last favourite'),
+            'access' => array(//'admin',
             ),
         ),
-        'tools'       => array(
-            'title'         => _a('Tools'),
-            'access'        => array(
-                //'admin',
+        'tools' => array(
+            'title' => _a('Tools'),
+            'access' => array(//'admin',
             ),
         ),
     ),

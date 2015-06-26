@@ -7,64 +7,79 @@
         <h1><?php echo $this->escape($title); ?></h1>
     </div>
     <?php if ($uid > 0) { ?>
-    <?php if (!empty($favourites)) { ?>
-    <div class="well">
-        <?php _e('You will find below the list of items you picked up as favorite, for later usage '); ?>
-    </div>
-    <div class="panel panel-default pi-panel-tab">
-        <div class="panel-heading">
-        	<ul class="pi-panel-tab-indicators">
-        		<?php foreach ($favourites as $favourite) { ?>
-        		<li<?php if ($favourite['name'] == 'news') { echo ' class="active"'; } ?>>
-        			<a aria-expanded="true" href="#" data-toggle="tab" data-target="#panel-<?php echo $this->escape($favourite['name']); ?>"><?php echo $this->escape($favourite['title']); ?></a>
-        		</li>
-        		<?php } ?>
-        	</ul>
-        </div>
-        <div class="panel-body tab-content">
-        	<?php foreach ($favourites as $favourite) { ?>
-        	<div class="tab-pane<?php if ($favourite['name'] == 'news') { echo ' active'; } ?>" id="panel-<?php echo $this->escape($favourite['name']); ?>">
-                <?php if (!empty($favourite['list'])) { ?>
-                <h2><?php echo $this->escape($favourite['title']); ?></h2>
-                <ul class="list-group">
-                    <?php foreach ($favourite['list'] as $list) { ?>
-                    <li class="list-group-item">
-                        <?php if (!empty($list['image'])) { ?>
-                        <img class="img-rounded" src="<?php echo $this->escape($list['image']); ?>" alt="<?php echo $this->escape($list['title']); ?>">
+        <?php if (!empty($favourites)) { ?>
+            <div class="well">
+                <?php _e('You will find below the list of items you picked up as favorite, for later usage '); ?>
+            </div>
+            <div class="panel panel-default pi-panel-tab">
+                <div class="panel-heading">
+                    <ul class="pi-panel-tab-indicators">
+                        <?php foreach ($favourites as $favourite) { ?>
+                            <li<?php if ($favourite['name'] == 'news') {
+                                echo ' class="active"';
+                            } ?>>
+                                <a aria-expanded="true" href="#" data-toggle="tab"
+                                   data-target="#panel-<?php echo $this->escape($favourite['name']); ?>"><?php echo $this->escape($favourite['title']); ?></a>
+                            </li>
                         <?php } ?>
-                        <span>
-                            <a title="<?php echo $this->escape($list['title']); ?>" href="<?php echo $this->escape($list['url']); ?>">
+                    </ul>
+                </div>
+                <div class="panel-body tab-content">
+                    <?php foreach ($favourites as $favourite) { ?>
+                        <div class="tab-pane<?php if ($favourite['name'] == 'news') {
+                            echo ' active';
+                        } ?>" id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                            <?php if (!empty($favourite['list'])) { ?>
+                                <h2><?php echo $this->escape($favourite['title']); ?></h2>
+                                <ul class="list-group">
+                                    <?php foreach ($favourite['list'] as $list) { ?>
+                                        <li class="list-group-item">
+                                            <?php if (!empty($list['image'])) { ?>
+                                                <img class="img-rounded"
+                                                     src="<?php echo $this->escape($list['image']); ?>"
+                                                     alt="<?php echo $this->escape($list['title']); ?>">
+                                            <?php } ?>
+                                            <span>
+                            <a title="<?php echo $this->escape($list['title']); ?>"
+                               href="<?php echo $this->escape($list['url']); ?>">
                                 <?php echo $this->escape($list['title']); ?>
                             </a>
                         </span>
-                    </li>
+                                        </li>
+                                    <?php } ?>
+                                    <br/>
+
+                                    <div class="clearfix text-center">
+                                        <a class="btn btn-success" title="<?php _e('More'); ?>"
+                                           href="<?php echo $this->escape($favourite['moreUrl']); ?>" target="_blank"><i
+                                                class="fa fa-folder-open"></i> <?php _e('More'); ?></a>
+                                        <a class="btn btn-success" title="<?php _e('Print'); ?>"
+                                           href="<?php echo $this->escape($favourite['printUrl']); ?>"
+                                           target="_blank"><i class="fa fa-print"></i> <?php _e('Print'); ?></a>
+                                    </div>
+                                </ul>
+                            <?php } else { ?>
+                                <div class="well">
+                                    <h2><?php echo $this->escape($favourite['title']); ?></h2>
+                                    <?php echo $this->escape($favourite['message']); ?>
+                                </div>
+                            <?php } ?>
+                        </div>
                     <?php } ?>
-                    <br />
-                    <div class="clearfix text-center">
-                        <a class="btn btn-success" title="<?php _e('More'); ?>" href="<?php echo $this->escape($favourite['moreUrl']); ?>" target="_blank"><i class="fa fa-folder-open"></i> <?php _e('More'); ?></a>
-                        <a class="btn btn-success" title="<?php _e('Print'); ?>" href="<?php echo $this->escape($favourite['printUrl']); ?>" target="_blank"><i class="fa fa-print"></i> <?php _e('Print'); ?></a>
-                    </div>
-                </ul>
-                <?php } else {  ?>
-                <div class="well">
-                    <h2><?php echo $this->escape($favourite['title']); ?></h2>
-                    <?php echo $this->escape($favourite['message']); ?>
-                </div>  
-                <?php } ?>
-        	</div>
-        	<?php } ?>
+                </div>
+            </div>
+        <?php } else { ?>
+            <div class="alert alert-danger" role="alert">
+                <h4><?php _e('There is no favorite to display'); ?></h4>
+
+                <p><?php _e('You have not yet used the favorite feature. Try it !'); ?></p>
+            </div>
+        <?php } ?>
+    <?php } else { ?>
+        <div class="alert alert-danger" role="alert">
+            <h4><?php _e('You dont have access to this area - Permission denied'); ?></h4>
+
+            <p><?php _e('You have to login first to be able to manage your favorites'); ?></p>
         </div>
-    </div> 
-    <?php } else { ?>
-    <div class="alert alert-danger" role="alert">
-    	<h4><?php _e('There is no favorite to display'); ?></h4>
-    	<p><?php _e('You have not yet used the favorite feature. Try it !'); ?></p>
-    </div>
-    <?php } ?>
-    <?php } else { ?>
-    <div class="alert alert-danger" role="alert">
-    	<h4><?php _e('You dont have access to this area - Permission denied'); ?></h4>
-    	<p><?php _e('You have to login first to be able to manage your favorites'); ?></p>
-    </div>
     <?php } ?>
 </div>
