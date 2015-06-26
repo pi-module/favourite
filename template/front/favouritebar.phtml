@@ -15,20 +15,29 @@ $favourite['htmlId'] = sprintf('favourite-%s-%s-%s', $favourite['module'], $favo
 // Set icon
 $configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
 switch ($configFavourite['favourite_icon']) {
+    case 'wishlist':
+        $favourite['icon'] = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
+        $favourite['iconbar'] = 'wishlist';
+        $favourite['iconclass'] = 'favouritebar-click btn btn-default';
+        break;
+
     case 'bookmark':
         $favourite['icon'] = ($favourite['is']) ? 'fa-bookmark' : 'fa-bookmark-o';
         $favourite['iconbar'] = 'bookmark';
+        $favourite['iconclass'] = 'favouritebar-click';
         break;
 
     case 'heart':
         $favourite['icon'] = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
         $favourite['iconbar'] = 'heart';
+        $favourite['iconclass'] = 'favouritebar-click';
         break;
 
     case 'star':
     default:
         $favourite['icon'] = ($favourite['is']) ? 'fa-star' : 'fa-star-o';
         $favourite['iconbar'] = 'star';
+        $favourite['iconclass'] = 'favouritebar-click';
         break;
 }
 // Set class
@@ -54,9 +63,12 @@ $onclick = sprintf($onclick,
 );
 ?>
 <div class="favouritebar <?php echo $favouriteClass; ?>">
-    <a data-toggle="tooltip" data-placement="top" title="<?php echo $favourite['tooltip']; ?>"
+    <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>" onclick="<?php echo $onclick; ?>">
         <i class="fa <?php echo $favourite['icon']; ?>"></i>
+        <?php if ($configFavourite['favourite_icon'] == 'wishlist') {
+            echo __('Wishlist');
+        } ?>
     </a>
     <?php if ($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
         <div class="favorite-count">

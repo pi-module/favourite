@@ -58,7 +58,7 @@ return array(
                         'star' => _a('Star'),
                         'heart' => _a('Heart'),
                         'bookmark' => _a('Bookmark'),
-                        'button' => _a('Button'),
+                        'wishlist' => _a('Wishlist'),
                     ),
                 ),
             ),
