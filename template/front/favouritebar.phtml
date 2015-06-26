@@ -4,46 +4,50 @@
 <?php
 // Load language file
 Pi::service('i18n')->load(array('module/favourite', 'default'));
-// Load jQuery
-$this->jQuery();
-// Load js files
-$this->js($this->assetModule('script/favourite.min.js', 'favourite'));
-// Load css files
-$this->css($this->assetModule('script/favourite.css', 'favourite'));
-// Set html id
-$favourite['htmlId'] = sprintf('favourite-%s-%s-%s', $favourite['module'], $favourite['table'], $favourite['item']);
 // Set icon
 $configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
 switch ($configFavourite['favourite_icon']) {
     case 'wishlist':
         $favourite['icon'] = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
-        $favourite['iconbar'] = 'wishlist';
-        $favourite['iconclass'] = 'favouritebar-click btn btn-default';
+        $favourite['iconbar'] = __('Wishlist');
+        $favourite['iconclass'] = ($favourite['is']) ? 'favouritebar-btn btn btn-success' : 'favouritebar-btn btn btn-primary';
         break;
 
     case 'bookmark':
         $favourite['icon'] = ($favourite['is']) ? 'fa-bookmark' : 'fa-bookmark-o';
         $favourite['iconbar'] = 'bookmark';
-        $favourite['iconclass'] = 'favouritebar-click';
+        $favourite['iconclass'] = 'favouritebar-icon';
         break;
 
     case 'heart':
         $favourite['icon'] = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
         $favourite['iconbar'] = 'heart';
-        $favourite['iconclass'] = 'favouritebar-click';
+        $favourite['iconclass'] = 'favouritebar-icon';
         break;
 
     case 'star':
     default:
         $favourite['icon'] = ($favourite['is']) ? 'fa-star' : 'fa-star-o';
         $favourite['iconbar'] = 'star';
-        $favourite['iconclass'] = 'favouritebar-click';
+        $favourite['iconclass'] = 'favouritebar-icon';
         break;
 }
+// Set html id
+$favourite['htmlId'] = sprintf('favourite-%s-%s-%s', $favourite['module'], $favourite['table'], $favourite['item']);
 // Set class
 $favouriteClass = isset($favourite['class']) ? $favourite['class'] : '';
 // Set tooltip text
 $favourite['tooltip'] = ($favourite['is']) ? __('Remove favourite') : __('Declare as favourite');
+// Load jQuery
+$this->jQuery();
+// Load js files
+if ($configFavourite['favourite_icon'] == 'wishlist') {
+    $this->js($this->assetModule('script/favourite.wishlist.js', 'favourite'));
+} else {
+    $this->js($this->assetModule('script/favourite.js', 'favourite'));
+}
+// Load css files
+$this->css($this->assetModule('script/favourite.css', 'favourite'));
 // Set js
 $js = <<<'EOT'
 $("#%s").tooltip();
@@ -63,7 +67,8 @@ $onclick = sprintf($onclick,
 );
 ?>
 <div class="favouritebar <?php echo $favouriteClass; ?>">
-    <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top" title="<?php echo $favourite['tooltip']; ?>"
+    <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top"
+       title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>" onclick="<?php echo $onclick; ?>">
         <i class="fa <?php echo $favourite['icon']; ?>"></i>
         <?php if ($configFavourite['favourite_icon'] == 'wishlist') {
