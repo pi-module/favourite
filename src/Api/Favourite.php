@@ -18,7 +18,7 @@ use Pi\Application\Api\AbstractApi;
 
 /*
  * Pi::api('favourite', 'favourite')->listFavourite();
- * Pi::api('favourite', 'favourite')->listItemFavourite($item, $table, $module);
+ * Pi::api('favourite', 'favourite')->listItemFavourite($module, $table, $item);
  * Pi::api('favourite', 'favourite')->doFavourite($params);
  * Pi::api('favourite', 'favourite')->loadFavourite($module, $table, $item);
  * Pi::api('favourite', 'favourite')->userFavourite($uid, $module, $limit);
@@ -72,7 +72,7 @@ class Favourite extends AbstractApi
         return $list;
     }
 
-    public function listItemFavourite($item, $table, $module)
+    public function listItemFavourite($module, $table, $item)
     {
         // Check user checkin or not
         $list = array();
