@@ -18,6 +18,7 @@ use Pi\Application\Api\AbstractApi;
 
 /*
  * Pi::api('favourite', 'favourite')->listFavourite();
+ * Pi::api('favourite', 'favourite')->listItemFavourite($item, $table, $module);
  * Pi::api('favourite', 'favourite')->doFavourite($params);
  * Pi::api('favourite', 'favourite')->loadFavourite($module, $table, $item);
  * Pi::api('favourite', 'favourite')->userFavourite($uid, $module, $limit);
@@ -71,11 +72,11 @@ class Favourite extends AbstractApi
         return $list;
     }
 
-    public function listItemFavourite($item)
+    public function listItemFavourite($item, $table, $module)
     {
         // Check user checkin or not
         $list = array();
-        $where = array('item' => $item);
+        $where = array('item' => $item, 'table' => $table, 'module' => $module);
         $order = array('id DESC', 'time_create DESC');
         $select = Pi::model('list', $this->getModule())->select()->where($where)->order($order);
         $rowset = Pi::model('list', $this->getModule())->selectWith($select);
