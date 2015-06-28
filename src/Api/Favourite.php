@@ -71,6 +71,26 @@ class Favourite extends AbstractApi
         return $list;
     }
 
+    public function listItemFavourite($item)
+    {
+        // Check user checkin or not
+        $list = array();
+        $where = array('item' => $item);
+        $order = array('id DESC', 'time_create DESC');
+        $select = Pi::model('list', $this->getModule())->select()->where($where)->order($order);
+        $rowset = Pi::model('list', $this->getModule())->selectWith($select);
+        foreach ($rowset as $row) {
+            // Get user info
+            $user = Pi::user()->get($row->uid, array('id', 'identity', 'name', 'email'));
+            $user['avatar'] = Pi::service('user')->avatar($row->uid, 'small', array(
+                'alt' => $user['name'],
+                'class' => 'img-circle',
+            ));
+            $list[$row->id] = $user;
+        }
+        return $list;
+    }
+
     public function loadFavourite($module, $table, $item)
     {
         $uid = Pi::user()->getId();
