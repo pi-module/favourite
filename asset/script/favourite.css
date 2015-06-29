@@ -1,10 +1,4 @@
-.favouritebar {
-    width: 40px;
-    margin: 1px;
-    padding: 1px;
-    text-align: center;
-    color: #F2B900;
-}
+.favouritebar {}
 
 .favouritebar-icon {
     color: #F2B900;
