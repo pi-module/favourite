@@ -9,7 +9,7 @@ $configFavourite = Pi::service('registry')->config->read('favourite', 'favourite
 switch ($configFavourite['favourite_icon']) {
     case 'wishlist':
         $favourite['icon'] = ($favourite['is']) ? 'fa-check' : '';
-        $favourite['iconbar'] = ($favourite['is']) ? __('Whishlist ?') : __('Whishlist !');
+        $favourite['iconbar'] = ($favourite['is']) ? __('Add to Wishlist ?') : __('Whishlist !');
         $favourite['iconclass'] = ($favourite['is']) ? 'favouritebar-btn btn btn-success' : 'favouritebar-btn btn btn-primary';
         break;
 
@@ -74,7 +74,7 @@ $onclick = sprintf($onclick,
         <i class="fa <?php echo $favourite['icon']; ?>"></i>
         <?php } ?>
         <?php if ($configFavourite['favourite_icon'] == 'wishlist') {
-            echo ($favourite['is']) ? __('Whishlist !') : __('Whishlist ?');
+            echo ($favourite['is']) ? __('Whishlist !') : __('Add to Wishlist ?');
         } ?>
     </a>
     <?php if ($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
