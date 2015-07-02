@@ -8,8 +8,8 @@ Pi::service('i18n')->load(array('module/favourite', 'default'));
 $configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
 switch ($configFavourite['favourite_icon']) {
     case 'wishlist':
-        $favourite['icon'] = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
-        $favourite['iconbar'] = __('Wishlist');
+        $favourite['icon'] = ($favourite['is']) ? 'fa-check' : '';
+        $favourite['iconbar'] = ($favourite['is']) ? __('Whishlist ?') : __('Whishlist !');
         $favourite['iconclass'] = ($favourite['is']) ? 'favouritebar-btn btn btn-success' : 'favouritebar-btn btn btn-primary';
         break;
 
@@ -70,9 +70,11 @@ $onclick = sprintf($onclick,
     <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top"
        title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>" onclick="<?php echo $onclick; ?>">
+        <?php if ($favourite['icon']) { ?>
         <i class="fa <?php echo $favourite['icon']; ?>"></i>
+        <?php } ?>
         <?php if ($configFavourite['favourite_icon'] == 'wishlist') {
-            echo __('Wishlist');
+            echo ($favourite['is']) ? __('Whishlist !') : __('Whishlist ?');
         } ?>
     </a>
     <?php if ($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
