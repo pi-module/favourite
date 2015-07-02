@@ -87,6 +87,9 @@ class Favourite extends AbstractApi
                 'alt' => $user['name'],
                 'class' => 'img-circle',
             ));
+            $user['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', array(
+                'id' => $user['id'],
+            )));
             $list[$row->id] = $user;
         }
         return $list;
