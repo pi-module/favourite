@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Favourite\n"
-"POT-Creation-Date: 2015-07-02 12:16+0100\n"
+"POT-Creation-Date: 2015-07-22 23:24+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc\n"
@@ -16,8 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: src/Api/Favourite.php:39 src/Api/Favourite.php:52
-#: src/Api/Favourite.php:65
+#: src/Api/Favourite.php:39 src/Api/Favourite.php:52 src/Api/Favourite.php:65
 #, php-format
 msgid "You have not yet picked up items in %s module"
 msgstr "Vous n'avez pas encore sélectionné d'élément dans le module %s"
@@ -99,8 +98,7 @@ msgstr "Il n'y a aucun favori à afficher"
 
 #: template/front/favourite-list.phtml:74
 msgid "You have not yet used the favorite feature. Try it !"
-msgstr ""
-"Vous n'avez pas encore utilisé la fonctionnalité Favoris. Essayes-là !"
+msgstr "Vous n'avez pas encore utilisé la fonctionnalité Favoris. Essayes-là !"
 
 #: template/front/favourite-list.phtml:79
 msgid "You dont have access to this area - Permission denied"
@@ -108,16 +106,15 @@ msgstr "Vous n'avez pas accès à cette zone - permission refusée"
 
 #: template/front/favourite-list.phtml:80
 msgid "You have to login first to be able to manage your favorites"
-msgstr ""
-"Vous devez vous connecter préalablement pour pouvoir gérer vos favoris"
+msgstr "Vous devez vous connecter préalablement pour pouvoir gérer vos favoris"
 
 #: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:77
 msgid "Add to Wishlist ?"
-msgstr "Ajouter à la WishList ?"
+msgstr "Ajouter à la Sélection?"
 
 #: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:77
 msgid "Whishlist !"
-msgstr "WhishList !"
+msgstr "Sélectionné !"
 
 #: template/front/favouritebar.phtml:40
 msgid "Remove favourite"
