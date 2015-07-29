@@ -148,6 +148,9 @@ class Favourite extends AbstractApi
                     // Remove 
                     $row = Pi::model('list', $this->getModule())->find($row_list[0]['id']);
                     $row->delete();
+                    // flush cache
+                    Pi::service('cache')->flush('module', $params['to']);
+                    // Set return
                     $return['is'] = 0;
                     $return['status'] = 1;
                 } else {
@@ -160,6 +163,9 @@ class Favourite extends AbstractApi
                     $row->ip = Pi::user()->getIp();
                     $row->time_create = time();
                     $row->save();
+                    // flush cache
+                    Pi::service('cache')->flush('module', $params['to']);
+                    // Set return
                     $return['is'] = 1;
                     $return['status'] = 1;
                 }
