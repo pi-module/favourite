@@ -48,12 +48,7 @@ if ($configFavourite['favourite_icon'] == 'wishlist') {
 }
 // Load css files
 $this->css($this->assetModule('script/favourite.css', 'favourite'));
-// Set js
-$js = <<<'EOT'
-$("#%s").tooltip();
-EOT;
-$js = sprintf($js, $favourite['htmlId']);
-$this->footScript()->appendScript($js);
+
 // Set onclick
 $onclick = <<<'EOT'
 setFavourite('%s', '%s', '%s', '%s', '%s');
