@@ -6,6 +6,9 @@
  * @license         http://pialog.org/license.txt New BSD License
  */
 function setFavourite(file, item, table, module, title) {
+
+    $('.itemUserActivityUser.liked').toggleClass('hide');
+
     $.ajax({
         type: "POST",
         url: file,
