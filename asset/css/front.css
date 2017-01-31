@@ -3,3 +3,8 @@
     height: 32px;
     margin: 1px 10px;
 }
+
+#pi-favourite.userSection .container {
+    max-width: none;
+    width: auto;
+}
