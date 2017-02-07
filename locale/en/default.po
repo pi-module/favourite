@@ -65,3 +65,11 @@ msgstr ""
 #: /var/www/html/local/pi/pi-release-2.4.0/usr/module/favourite/template/admin/index_index.phtml:11
 msgid "Create"
 msgstr ""
+
+#: src/Api/Favorite.php:160
+msgid "Error to set your favorite"
+msgstr ""
+
+#: src/Api/Favorite.php:161
+msgid "Item not active"
+msgstr ""

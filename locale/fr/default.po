@@ -123,3 +123,11 @@ msgstr "Supprimer le favori"
 #: template/front/favouritebar.phtml:40
 msgid "Declare as favourite"
 msgstr "Ajouter aux favoris"
+
+#: src/Api/Favorite.php:160
+msgid "Error to set your favorite"
+msgstr "Impossible d'enregistrer votre favoris"
+
+#: src/Api/Favorite.php:161
+msgid "Item not active"
+msgstr "L'élément n'est pas actif"

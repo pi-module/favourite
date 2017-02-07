@@ -154,6 +154,15 @@ class Favourite extends AbstractApi
                     $return['is'] = 0;
                     $return['status'] = 1;
                 } else {
+                    if ($params['table'] == 'item' && $params['to'] == 'guide') {
+                        $item = Pi::model('item', 'guide')->find($params['item']);
+                        if (!$item || $item->status != 1) {
+                            $return['title'] = __('Error to set your favorite');
+                            $return['message'] = __('Item not active');
+                            $return['status'] = 0;
+                            return $return;
+                        }
+                    }
                     // Add
                     $row = Pi::model('list', $this->getModule())->createRow();
                     $row->uid = $uid;
