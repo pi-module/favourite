@@ -5,7 +5,15 @@
  * @copyright       Copyright (c) Pi Engine http://pialog.org
  * @license         http://pialog.org/license.txt New BSD License
  */
-function setFavourite(file, item, table, module, icon) {
+var favoritePopoverTimeoutHandle;
+
+function setFavourite(file, item, table, module, icon, modalEnabled, loginLinkLabel) {
+
+    var modalEnabled = login;
+    var loginLinkLabel = (typeof loginLinkLabel == 'undefined') ? 'Login' : loginLinkLabel;
+
+    $('.itemUserActivityUser.liked').toggleClass('hide');
+
     $.ajax({
         type: "POST",
         url: file,
@@ -19,17 +27,31 @@ function setFavourite(file, item, table, module, icon) {
                     $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fa fa-' + icon + '-o"></i>');
                 }
             } else {
-                $('#favourite-' + module + '-' + table + '-' + item).popover({
-                    trigger: 'hover',
+
+                var content = result.message;
+
+                if(modalEnabled){
+                    content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#loginRegisterModal">'+loginLinkLabel+'</button></div>';
+                }
+
+                var link = $('#favourite-' + module + '-' + table + '-' + item);
+                link.not('.popover-active').addClass('popover-active').popover({
+                    trigger: 'manual',
                     placement: 'top',
                     toggle: 'popover',
-                    content: result.message,
+                    content: content,
                     title: result.title,
-                    container: 'body'
-                }).popover('show');
-                setTimeout(function () {
-                    $('#favourite-' + module + '-' + table + '-' + item).popover('hide')
-                }, 3000);
+                    container: 'body',
+                    html: true
+                });
+
+                link.popover('show');
+
+                clearTimeout(favoritePopoverTimeoutHandle);
+
+                favoritePopoverTimeoutHandle = setTimeout(function () {
+                    link.popover('hide')
+                }, 5000);
             }
         }
     });
