@@ -9,7 +9,7 @@ var favoritePopoverTimeoutHandle;
 
 function setFavourite(file, item, table, module, title, modalEnabled, loginLinkLabel) {
 
-    var modalEnabled = login;
+    var modalEnabled = (typeof modalEnabled == 'undefined') ? false : true;
     var loginLinkLabel = (typeof loginLinkLabel == 'undefined') ? 'Login' : loginLinkLabel;
 
     $('.itemUserActivityUser.liked').toggleClass('hide');
@@ -28,6 +28,8 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
                 }
             } else {
 
+                clearTimeout(favoritePopoverTimeoutHandle);
+
                 var content = result.message;
 
                 if(modalEnabled){
@@ -35,6 +37,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
                 }
 
                 var link = $('#favourite-' + module + '-' + table + '-' + item);
+
                 link.not('.popover-active').addClass('popover-active').popover({
                     trigger: 'manual',
                     placement: 'top',
@@ -45,9 +48,9 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
                     html: true
                 });
 
-                link.popover('show');
+                $('.popover-active').not(link).popover('hide');
 
-                clearTimeout(favoritePopoverTimeoutHandle);
+                link.popover('show');
 
                 favoritePopoverTimeoutHandle = setTimeout(function () {
                     link.popover('hide')

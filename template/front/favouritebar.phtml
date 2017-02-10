@@ -59,7 +59,7 @@ $onclick = sprintf($onclick,
     $favourite['table'],
     $favourite['module'],
     $favourite['iconbar'],
-    Pi::user()->config('enable_modal'),
+    Pi::user()->config('enable_modal') ? 'true' : 'false',
     __('Login')
 );
 ?>
