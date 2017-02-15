@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Favourite\n"
-"POT-Creation-Date: 2016-01-22 20:07+0100\n"
+"POT-Creation-Date: 2017-02-15 22:06+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "You have not yet picked up items in %s module"
 msgstr "Vous n'avez pas encore sélectionné d'élément dans le module %s"
 
-#: src/Api/Favourite.php:133 src/Api/Favourite.php:175
+#: src/Api/Favourite.php:133 src/Api/Favourite.php:184
 msgid "Error to make favourite"
 msgstr "Une erreur est survenue lors de la création du favori"
 
@@ -29,7 +29,15 @@ msgstr "Une erreur est survenue lors de la création du favori"
 msgid "Please login for make favourite"
 msgstr "Merci de vous connecter pour ajouter un favori"
 
-#: src/Api/Favourite.php:176
+#: src/Api/Favourite.php:160
+msgid "Error to set your favorite"
+msgstr "Impossible d'enregistrer votre favoris"
+
+#: src/Api/Favourite.php:161
+msgid "Item not active"
+msgstr "L'élément n'est pas actif"
+
+#: src/Api/Favourite.php:185
 #, php-format
 msgid "You can make favourite after %s second"
 msgstr "Vous pouvez ajouter un favoris dans %s secondes"
@@ -108,11 +116,11 @@ msgstr "Vous n'avez pas accès à cette zone - permission refusée"
 msgid "You have to login first to be able to manage your favorites"
 msgstr "Vous devez vous connecter préalablement pour pouvoir gérer vos favoris"
 
-#: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:77
+#: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:74
 msgid "Add to Wishlist ?"
 msgstr "Ajout Favoris?"
 
-#: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:77
+#: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:74
 msgid "Whishlist !"
 msgstr "Ajouté !"
 
@@ -124,10 +132,6 @@ msgstr "Supprimer le favori"
 msgid "Declare as favourite"
 msgstr "Ajouter aux favoris"
 
-#: src/Api/Favorite.php:160
-msgid "Error to set your favorite"
-msgstr "Impossible d'enregistrer votre favoris"
-
-#: src/Api/Favorite.php:161
-msgid "Item not active"
-msgstr "L'élément n'est pas actif"
+#: template/front/favouritebar.phtml:63
+msgid "login/register"
+msgstr "connexion/s'inscrire"
