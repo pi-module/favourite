@@ -60,7 +60,7 @@ $onclick = sprintf($onclick,
     $favourite['module'],
     $favourite['iconbar'],
     Pi::user()->config('enable_modal') ? 'true' : 'false',
-    __('login/register')
+    str_replace("'", "\'", __('login/register'))
 );
 ?>
 <div class="favouritebar <?php echo $favouriteClass; ?>">
