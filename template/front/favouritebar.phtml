@@ -60,11 +60,12 @@ $onclick = sprintf($onclick,
     $favourite['module'],
     $favourite['iconbar'],
     Pi::user()->config('enable_modal') ? 'true' : 'false',
-    __('login/register')
+    str_replace("'", "\'", __('login/register'))
 );
 ?>
 <div class="favouritebar <?php echo $favouriteClass; ?>">
     <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top"
+       rel="noindex,nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>" onclick="<?php echo $onclick; ?>">
         <?php if ($favourite['icon']) { ?>
