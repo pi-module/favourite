@@ -51,18 +51,21 @@ $this->css($this->assetModule('script/favourite.css', 'favourite'));
 
 // Set onclick
 $onclick = <<<'EOT'
-setFavourite('%s', '%s', '%s', '%s', '%s');
+setFavourite('%s', '%s', '%s', '%s', '%s', '%s', '%s');
 EOT;
 $onclick = sprintf($onclick,
     Pi::url('favourite', true),
     $favourite['item'],
     $favourite['table'],
     $favourite['module'],
-    $favourite['iconbar']
+    $favourite['iconbar'],
+    Pi::user()->config('enable_modal') ? 'true' : 'false',
+    str_replace("'", "\'", __('login/register'))
 );
 ?>
 <div class="favouritebar <?php echo $favouriteClass; ?>">
     <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top"
+       rel="noindex,nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>" onclick="<?php echo $onclick; ?>">
         <?php if ($favourite['icon']) { ?>
