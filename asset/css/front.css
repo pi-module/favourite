@@ -8,3 +8,29 @@
     max-width: none;
     width: auto;
 }
+
+.favourite-box {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+
+.favourite-avatar {
+    margin: 0 10px 20px 10px;
+}
+
+.favourite-text {
+    margin: 0 5px;
+}
+
+.favourite-text h2 {
+    margin: 0;
+    padding: 30px 0;
+}
+
+.favourite-count {
+    padding: 10px;
+}
+
+.page-header{
+    padding-bottom: 5px
+}

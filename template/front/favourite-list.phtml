@@ -8,56 +8,69 @@
             <h1><?php echo $this->escape($title); ?></h1>
         </div>
         <?php if ($uid > 0) { ?>
+            <div class="row favourite-box">
+                <div class="col-md-9">
+    
+                    <div class="favourite-avatar pull-left"><?php echo $user['avatar']; ?></div>
+                    <div class="favourite-text pull-left">
+                        <h2>
+                            <a title="<?php echo $user['name']; ?>" href="<?php echo $user['profileUrl']; ?>">
+                                <?php echo $user['name']; ?>
+                            </a>
+                        </h2>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <?php 
+                        $count = 0;
+                        foreach ($favourites as $favourite) {
+                            $count += count($favourite['list']);
+                        }
+                    ?>
+                    <div class="favourite-count">
+                        <strong><i class="fa fa-star"></i> <?php _e('Favorites'); ?></strong> : <?php echo _number($count); ?>
+                    </div>
+                   
+                </div>
+            </div>
             <?php if (!empty($favourites)) { ?>
                 <div class="well">
                     <?php _e('You will find below the list of items you picked up as favorite, for later usage '); ?>
                 </div>
-                <div class="panel panel-default pi-panel-tab">
-                    <div class="panel-heading">
-                        <ul class="pi-panel-tab-indicators">
-                            <?php foreach ($favourites as $favourite) { ?>
-                                <li<?php if ($favourite['name'] == 'news') {
-                                    echo ' class="active"';
-                                } ?>>
-                                    <a aria-expanded="true" href="#" data-toggle="tab"
-                                       data-target="#panel-<?php echo $this->escape($favourite['name']); ?>">
-                                        <?php echo $this->escape($favourite['title']); ?>
-                                    </a>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                    </div>
+                 <div class="panel-heading">
+                    <ul class="nav nav-tabs pi-panel-tab-indicators">
+                        <?php foreach ($favourites as $favourite) { ?>
+                            <li<?php if ($favourite['name'] == 'news') {
+                                echo ' class="active"';
+                            } ?>>
+                                <a aria-expanded="true" href="#" data-toggle="tab"
+                                   data-target="#panel-<?php echo $this->escape($favourite['name']); ?>">
+                                    <?php echo $this->escape($favourite['title']); ?>
+                                </a>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                </div>
+                <div class=" pi-panel-tab">
                     <div class="panel-body tab-content">
                         <?php foreach ($favourites as $favourite) { ?>
                             <div class="tab-pane<?php if ($favourite['name'] == 'news') {
                                 echo ' active';
                             } ?>" id="panel-<?php echo $this->escape($favourite['name']); ?>">
                                 <?php if (!empty($favourite['list'])) { ?>
-                                    <h2><?php echo $this->escape($favourite['title']); ?></h2>
-                                    <ul class="list-group">
-                                        <?php foreach ($favourite['list'] as $list) { ?>
-                                            <li class="list-group-item">
-                                                <?php if (!empty($list['image'])) { ?>
-                                                    <img class="img-rounded"
-                                                         src="<?php echo $this->escape($list['image']); ?>"
-                                                         alt="<?php echo $this->escape($list['title']); ?>">
-                                                <?php } ?>
-                                                <a title="<?php echo $this->escape($list['title']); ?>"
-                                                   href="<?php echo $this->escape($list['url']); ?>">
-                                                    <?php echo $this->escape($list['title']); ?>
-                                                </a>
-                                            </li>
-                                        <?php } ?>
-                                        <br/>
-                                        <div class="clearfix text-center">
-                                            <a class="btn btn-success" title="<?php _e('More'); ?>"
-                                               href="<?php echo $this->escape($favourite['moreUrl']); ?>" target="_blank"><i
-                                                    class="fa fa-folder-open"></i> <?php _e('More'); ?></a>
-                                            <a class="btn btn-success" title="<?php _e('Print'); ?>"
-                                               href="<?php echo $this->escape($favourite['printUrl']); ?>"
-                                               target="_blank"><i class="fa fa-print"></i> <?php _e('Print'); ?></a>
-                                        </div>
-                                    </ul>
+                                    <?php
+                                        $favouriteList = $favourite['list'];
+                                        $partial = $this->templateModule('front/partial/favourite-list.phtml',  $favourite['name']);
+                                        if ($partial) {
+                                        } else {
+                                            $partial = $this->template('front/partial/favourite-list.phtml');
+                                        }
+                                        include $partial;
+                                    ?>
+                                <div class="clearfix text-center">
+                                    <a class="btn btn-success" title="<?php _e('Print'); ?>" href="<?php echo Pi::url($this->url('', array('controller' => 'print', 'action' => '', 'type' => $favourite['name'] ))); ?>"
+                                       target="_blank"><i class="fa fa-print"></i> <?php _e('Print'); ?></a>
+                                </div>
                                 <?php } else { ?>
                                     <div class="well">
                                         <h2><?php echo $this->escape($favourite['title']); ?></h2>
