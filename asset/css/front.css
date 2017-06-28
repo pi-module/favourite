@@ -34,3 +34,8 @@
 .page-header{
     padding-bottom: 5px
 }
+
+.favourites .well {
+    background:transparent;
+    border:none;
+}
