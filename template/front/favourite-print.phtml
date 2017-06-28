@@ -19,7 +19,9 @@ $this->css(
     <!--  onload="window.print()" -->
     <body onload="window.print()">
         <div id="print" class="container">
-                
+        <div class="page-header clearfix">
+            <h4><?php echo $this->escape($title); ?></h4>
+        </div>
             <div class="clearfix row">
                 <div class="col-md-9">
                     <?php if ($uid > 0) { ?>
