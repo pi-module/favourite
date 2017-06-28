@@ -28,7 +28,7 @@
                         }
                     ?>
                     <div class="favourite-count">
-                        <strong><i class="fa fa-star"></i> <?php _e('Favorites'); ?></strong> : <?php echo _number($count); ?>
+                        <strong><i class="fa fa-check"></i> <?php _e('Favorites'); ?></strong> : <?php echo _number($count); ?>
                     </div>
                    
                 </div>
@@ -69,11 +69,10 @@
                                     ?>
                                 <div class="clearfix text-center">
                                     <a class="btn btn-success" title="<?php _e('Print'); ?>" href="<?php echo Pi::url($this->url('', array('controller' => 'print', 'action' => '', 'type' => $favourite['name'] ))); ?>"
-                                       target="_blank"><i class="fa fa-print"></i> <?php _e('Print'); ?></a>
+                                       target="_blank"><i class="fa fa-print"></i> <?php _e('Print favourite list'); ?></a>
                                 </div>
                                 <?php } else { ?>
                                     <div class="well">
-                                        <h2><?php echo $this->escape($favourite['title']); ?></h2>
                                         <?php echo $this->escape($favourite['message']); ?>
                                     </div>
                                 <?php } ?>
