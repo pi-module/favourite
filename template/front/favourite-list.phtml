@@ -39,10 +39,10 @@
                 </div>
                  <div class="panel-heading">
                     <ul class="nav nav-tabs pi-panel-tab-indicators">
+                        <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
-                            <li<?php if ($favourite['name'] == 'news') {
-                                echo ' class="active"';
-                            } ?>>
+                            <li class="<?php echo $first ? 'active' : '' ?>">
+                                <?php $first = false; ?>
                                 <a aria-expanded="true" href="#" data-toggle="tab"
                                    data-target="#panel-<?php echo $this->escape($favourite['name']); ?>">
                                     <?php echo $this->escape($favourite['title']); ?>
@@ -53,10 +53,11 @@
                 </div>
                 <div class=" pi-panel-tab">
                     <div class="panel-body tab-content">
+                        
+                        <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
-                            <div class="tab-pane<?php if ($favourite['name'] == 'news') {
-                                echo ' active';
-                            } ?>" id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                                <div class="tab-pane <?php echo $first ? 'active' : '' ?> " id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                                <?php $first = false; ?>
                                 <?php if (!empty($favourite['list'])) { ?>
                                     <?php
                                         $favouriteList = $favourite['list'];

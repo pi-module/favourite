@@ -106,9 +106,9 @@ class Favourite extends AbstractApi
     public function listFavourite()
     {
         $list = array();
+        $list = array_merge($list, $this->listFavouriteGuide());
         $list = array_merge($list, $this->listFavouriteNews());
         $list = array_merge($list, $this->listFavouriteShop());
-        $list = array_merge($list, $this->listFavouriteGuide());
         
         return $list;
     }
