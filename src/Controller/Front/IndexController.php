@@ -30,6 +30,15 @@ class IndexController extends ActionController
         } else {
             // Set uid
             $uid = Pi::user()->getId();
+            $user = Pi::user()->get($uid, array('id', 'identity', 'name', 'email'));
+            $user['avatar'] = Pi::service('user')->avatar($uid, 'large', array(
+                'alt' => $user['name'],
+                'class' => 'img-circle',
+            ));
+            $user['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', array(
+                'id' => $user['id'],
+            )));
+            
             // Set favourite
             $favourites = array();
             if ($uid > 0) {
@@ -42,6 +51,7 @@ class IndexController extends ActionController
             $this->view()->assign('title', __('All your favorite'));
             $this->view()->assign('favourites', $favourites);
             $this->view()->assign('uid', $uid);
+            $this->view()->assign('user', $user);
         }
     }
 }

@@ -1,0 +1,12 @@
+.list-group img {
+    width: 32px;
+    height: 32px;
+    margin: 1px 10px;
+}
+
+#pi-favourite.userSection .container {
+    max-width: none;
+    width: auto;
+}
+
+.btn.btn-success {display:none}

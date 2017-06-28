@@ -26,7 +26,7 @@ use Pi\Application\Api\AbstractApi;
 
 class Favourite extends AbstractApi
 {
-    public function listFavourite()
+    private function listFavouriteNews()
     {
         $list = array();
 
@@ -42,6 +42,13 @@ class Favourite extends AbstractApi
             );
             $list[] = $item;
         }
+        
+        return $list;
+    }
+    
+    private function listFavouriteShop()
+    {
+        $list = array();
 
         // Set shop favourite
         if (Pi::service('module')->isActive('shop')) {
@@ -55,6 +62,13 @@ class Favourite extends AbstractApi
             );
             $list[] = $item;
         }
+        
+        return $list;
+    }
+    
+    private function listFavouriteGuide()
+    {
+        $list = array();
 
         // Set guide favourite
         if (Pi::service('module')->isActive('guide')) {
@@ -68,7 +82,34 @@ class Favourite extends AbstractApi
             );
             $list[] = $item;
         }
-
+        
+        return $list;
+    }
+    public function listFavouriteModule($module)
+    {
+        $list = array();
+        switch ($module) {
+            case 'news':
+                $list = $this->listFavouriteNews();
+                break;
+            case 'shop':
+                $list = $this->listFavouriteShop();
+                break;
+            case 'guide':
+                $list = $this->listFavouriteGuide();
+                break;
+        }
+        return $list;
+    }
+    
+    
+    public function listFavourite()
+    {
+        $list = array();
+        $list = array_merge($list, $this->listFavouriteGuide());
+        $list = array_merge($list, $this->listFavouriteNews());
+        $list = array_merge($list, $this->listFavouriteShop());
+        
         return $list;
     }
 
