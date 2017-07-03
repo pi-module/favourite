@@ -39,3 +39,60 @@
     background:transparent;
     border:none;
 }
+
+.favorite-nopadding {
+    padding :0!important;
+}
+
+.favouritebar-btn {
+    width:100%;
+}
+
+.favouritebar .btn-success {
+    background-color: #EB4079;
+    border-color: #EB4079;
+}
+
+.favouritebar .btn-success:hover,
+.favouritebar .btn-success:focus,
+.favouritebar .btn-success.focus,
+.favouritebar .btn-success:active,
+.favouritebar .btn-success.active {
+    background-color: #EB4079;
+    border-color: #EB4079;
+}
+
+.favouritebar .btn-primary {
+    background-color: #EB4079;
+    border-color: #EB4079;
+    opacity: 0.6;
+}
+
+.favouritebar .btn-primary:hover,
+.favouritebar .btn-primary:focus,
+.favouritebar .btn-primary.focus,
+.favouritebar .btn-primary:active,
+.favouritebar .btn-primary.active {
+    background-color: #EB4079;
+    border-color: #EB4079;
+    opacity: 0.6;
+}
+
+.favouritebar a {
+    text-decoration: none; 
+    color:#51514F; 
+    cursor:pointer;
+}
+.itemUserActivityItem {
+    margin-top:10px;
+}
+.favouritebar{
+    margin-bottom:10px; 
+    border:1px solid #b7b7b7;
+}
+
+.favouritebar .btn {
+    width:100%
+}
+
+.favourite h5 {margin-top:0}

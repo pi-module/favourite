@@ -10,3 +10,8 @@
 }
 
 .btn.btn-success {display:none}
+
+.favorite-nopadding {
+    padding :0!important;
+}
+

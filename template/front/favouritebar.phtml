@@ -1,7 +1,47 @@
+<?php $this->css($this->assetModule('css/front.css', 'favourite')); ?>
+
 <?php if (empty($favourite)) {
     return;
 } ?>
 <?php
+$currentUser = false;
+
+$avatar = Pi::service('user')->avatar(null, 'small', array(
+    'alt' => $currentUser['name'],
+    'class' => 'img-circle',
+));
+
+if(Pi::service('user')) {
+    $currentUser = Pi::user()->get(Pi::service('user')->getId(), array(
+        'id', 'identity', 'name'
+    ));
+
+    if($currentUser){
+        $currentUser['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', array(
+            'id' => $currentUser['id'],
+        )));
+    }
+
+    $avatar = Pi::service('user')->avatar(Pi::service('user')->getId(), 'small', array(
+        'alt' => $currentUser['name'],
+        'class' => 'img-circle',
+    ));
+
+    $isChecked = false;
+    foreach ($checkinList as $user) {
+        if($user['id'] == $currentUser['id']){
+            $isChecked = true;
+        }
+    }
+
+    $isLiked = false;
+    foreach ($favouriteList as $user) {
+        if($user['id'] == $currentUser['id']){
+            $isLiked = true;
+        }
+    }
+}
+
 // Load language file
 Pi::service('i18n')->load(array('module/favourite', 'default'));
 // Set icon
@@ -63,7 +103,8 @@ $onclick = sprintf($onclick,
     str_replace("'", "\'", __('login/register'))
 );
 ?>
-<div class="favouritebar <?php echo $favouriteClass; ?>">
+
+<div class="favouritebar text-center <?php echo $favouriteClass; ?>">
     <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top"
        rel="noindex,nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
@@ -81,3 +122,39 @@ $onclick = sprintf($onclick,
         </div>
     <?php } ?>
 </div>
+<?php if(isset($favouriteList)) { ?>
+    <ul class="list-inline itemUserActivityItem text-center">
+
+        <?php if(!$currentUser) : ?>
+            <li class="itemUserActivityUser liked hide">
+                <?php echo $avatar; ?>
+            </li>
+        <?php endif; ?>
+
+        <?php if($currentUser && !$isLiked) : ?>
+            <li class="itemUserActivityUser liked hide">
+                <a title="<?php echo $currentUser['name']; ?>" href="<?php echo isset($currentUser['profileUrl']) ? $currentUser['profileUrl'] : '#'; ?>">
+                    <?php echo $avatar; ?>
+                </a>
+            </li>
+        <?php endif; ?>
+
+        <?php $i = 1; ?>
+        <?php foreach ($favouriteList as $user) { ?>
+            <?php if ($i < 3) { ?>
+                <li class="itemUserActivityUser <?php if($currentUser && $user['id'] == $currentUser['id']) : ?>liked<?php endif; ?>">
+                    <a title="<?php echo $user['name']; ?>" href="<?php echo $user['profileUrl']; ?>">
+                        <?php echo $user['avatar']; ?>
+                    </a>
+                </li>
+                <?php $i++; ?>
+            <?php } ?>
+        <?php } ?>
+        <li class="itemUserActivityMore <?php if (count($favouriteList) <= 2) { ?>hide<?php } ?>">
+            <div data-toggle="modal" data-target="#favouriteModal">
+                ...
+            </div>
+        </li>
+    </ul>
+<?php } ?>
+    

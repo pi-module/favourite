@@ -18,12 +18,12 @@ $this->css(
     </head>
     <!--  onload="window.print()" -->
     <body onload="window.print()">
-        <div id="print" class="container">
+        <div id="print">
         <div class="page-header clearfix">
             <h4><?php echo $this->escape($title); ?></h4>
         </div>
             <div class="clearfix row">
-                <div class="col-md-9">
+                <div class="col-md-12">
                     <?php if ($uid > 0) { ?>
                         <?php if (!empty($favourites)) { ?>
                             <?php foreach ($favourites as $favourite) { ?>
