@@ -4,11 +4,11 @@
         <?php include $this->templateModule('front/user-profile-sidebar.phtml', 'user'); ?>
     </div>
     <div class="col-md-9">
-        <div class="page-header">
+        <div class="page-header clearfix">
             <h1><?php echo $this->escape($title); ?></h1>
         </div>
         <?php if ($uid > 0) { ?>
-            <div class="row favourite-box">
+            <div class="favourite-box clearfix">
                 <div class="col-md-9">
     
                     <div class="favourite-avatar pull-left"><?php echo $user['avatar']; ?></div>
@@ -34,9 +34,6 @@
                 </div>
             </div>
             <?php if (!empty($favourites)) { ?>
-                <div class="well">
-                    <?php _e('You will find below the list of items you picked up as favorite, for later usage '); ?>
-                </div>
                  <div class="panel-heading">
                     <ul class="nav nav-tabs pi-panel-tab-indicators">
                         <?php $first = true; ?>
@@ -61,6 +58,8 @@
                                 <?php if (!empty($favourite['list'])) { ?>
                                     <?php
                                         $favouriteList = $favourite['list'];
+                                        $favouriteName = $favourite['name']; 
+                                        
                                         $partial = $this->templateModule('front/partial/favourite-list.phtml',  $favourite['name']);
                                         if ($partial) {
                                         } else {
@@ -69,7 +68,7 @@
                                         include $partial;
                                     ?>
                                 <div class="clearfix text-center">
-                                    <a class="btn btn-success" title="<?php _e('Print'); ?>" href="<?php echo Pi::url($this->url('', array('controller' => 'print', 'action' => '', 'type' => $favourite['name'] ))); ?>"
+                                    <a class="btn btn-success" title="<?php _e('Print'); ?>" href="<?php echo Pi::url($this->url('', array('controller' => 'print', 'action' => '', 'type' => $favouriteName ))); ?>"
                                        target="_blank"><i class="fa fa-print"></i> <?php _e('Print favourite list'); ?></a>
                                 </div>
                                 <?php } else { ?>

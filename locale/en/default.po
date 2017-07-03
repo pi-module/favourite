@@ -73,3 +73,9 @@ msgstr ""
 #: src/Api/Favorite.php:161
 msgid "Item not active"
 msgstr ""
+
+msgid "From"
+msgstr ""
+
+msgid "to"
+msgstr ""

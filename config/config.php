@@ -74,5 +74,13 @@ return array(
             'filter' => 'number_int',
             'value' => 1
         ),
+        'favourite_list' => array(
+            'category' => 'favourite',
+            'title' => _a('Show user list'),
+            'description' => '',
+            'edit' => 'checkbox',
+            'filter' => 'number_int',
+            'value' => 1
+        ),
     ),
 );

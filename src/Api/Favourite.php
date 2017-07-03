@@ -85,6 +85,28 @@ class Favourite extends AbstractApi
         
         return $list;
     }
+    
+    private function listFavouriteEvent()
+    {
+        $list = array();
+
+        // Set guide favourite
+        
+        if (Pi::service('module')->isActive('event')) {
+            $item = array(
+                'name' => 'event',
+                'title' => 'Event',
+                'list' => Pi::api('event', 'event')->FavoriteList(),
+                'message' => sprintf(__('You have not yet picked up event in %s module'), 'Event'),
+                'moreUrl' => '#',
+                'printUrl' => '#',
+            );
+            $list[] = $item;
+        }
+        
+        return $list;
+    }
+    
     public function listFavouriteModule($module)
     {
         $list = array();
@@ -98,6 +120,9 @@ class Favourite extends AbstractApi
             case 'guide':
                 $list = $this->listFavouriteGuide();
                 break;
+            case 'event':
+                $list = $this->listFavouriteEvent();
+                break;
         }
         return $list;
     }
@@ -107,9 +132,9 @@ class Favourite extends AbstractApi
     {
         $list = array();
         $list = array_merge($list, $this->listFavouriteGuide());
+        $list = array_merge($list, $this->listFavouriteEvent());
         $list = array_merge($list, $this->listFavouriteNews());
         $list = array_merge($list, $this->listFavouriteShop());
-        
         return $list;
     }
 
