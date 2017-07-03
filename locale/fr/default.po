@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Favourite\n"
-"POT-Creation-Date: 2017-02-15 22:06+0100\n"
+"POT-Creation-Date: 2017-07-03 22:36+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc\n"
@@ -9,48 +9,56 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 2.0.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ../..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: src/Api/Favourite.php:39 src/Api/Favourite.php:52 src/Api/Favourite.php:65
+#: src/Api/Favourite.php:39 src/Api/Favourite.php:59 src/Api/Favourite.php:79
 #, php-format
 msgid "You have not yet picked up items in %s module"
 msgstr "Vous n'avez pas encore sélectionné d'élément dans le module %s"
 
-#: src/Api/Favourite.php:133 src/Api/Favourite.php:184
+#: src/Api/Favourite.php:100
+#, php-format
+msgid "You have not yet picked up event in %s module"
+msgstr "Vous n'avez pas encore sélectionné d'évènement dans le module %s"
+
+#: src/Api/Favourite.php:199 src/Api/Favourite.php:250
 msgid "Error to make favourite"
 msgstr "Une erreur est survenue lors de la création du favori"
 
-#: src/Api/Favourite.php:134
+#: src/Api/Favourite.php:200
 msgid "Please login for make favourite"
 msgstr "Merci de vous connecter pour ajouter un favori"
 
-#: src/Api/Favourite.php:160
+#: src/Api/Favourite.php:226
 msgid "Error to set your favorite"
 msgstr "Impossible d'enregistrer votre favoris"
 
-#: src/Api/Favourite.php:161
+#: src/Api/Favourite.php:227
 msgid "Item not active"
 msgstr "L'élément n'est pas actif"
 
-#: src/Api/Favourite.php:185
+#: src/Api/Favourite.php:251
 #, php-format
 msgid "You can make favourite after %s second"
 msgstr "Vous pouvez ajouter un favoris dans %s secondes"
 
-#: src/Controller/Front/IndexController.php:39
+#: src/Controller/Front/IndexController.php:48
+#: src/Controller/Front/PrintController.php:33
 msgid "List of user favourites"
 msgstr "Listes des favoris utilisateurs"
 
-#: src/Controller/Front/IndexController.php:40
+#: src/Controller/Front/IndexController.php:49
+#: src/Controller/Front/PrintController.php:34
 msgid "list,user,favourite,website"
 msgstr "liste, utilisateur, favoris, site"
 
-#: src/Controller/Front/IndexController.php:42
+#: src/Controller/Front/IndexController.php:51
+#: src/Controller/Front/PrintController.php:36
 msgid "All your favorite"
 msgstr "Tous vos favoris"
 
@@ -82,56 +90,61 @@ msgstr "IP"
 msgid "Create"
 msgstr "Créer"
 
-#: template/front/favourite-list.phtml:13
-msgid ""
-"You will find below the list of items you picked up as favorite, for later "
-"usage "
-msgstr ""
-"Vous trouverez ci-dessous la liste des éléments que vous avez sélectionné "
-"comme favoris, pour une utilisation ultérieure"
+#: template/front/favourite-list.phtml:31
+msgid "Favorites"
+msgstr "Favoris"
 
-#: template/front/favourite-list.phtml:53
-#: template/front/favourite-list.phtml:55
-msgid "More"
-msgstr "Plus"
-
-#: template/front/favourite-list.phtml:56
-#: template/front/favourite-list.phtml:58
+#: template/front/favourite-list.phtml:71
 msgid "Print"
 msgstr "Imprimer"
 
-#: template/front/favourite-list.phtml:73
+#: template/front/favourite-list.phtml:72
+#: template/front/favourite-print.phtml:17
+msgid "Print favourite list"
+msgstr "Imprimer la liste des favoris"
+
+#: template/front/favourite-list.phtml:85
+#: template/front/favourite-print.phtml:54
 msgid "There is no favorite to display"
 msgstr "Il n'y a aucun favori à afficher"
 
-#: template/front/favourite-list.phtml:74
+#: template/front/favourite-list.phtml:86
+#: template/front/favourite-print.phtml:55
 msgid "You have not yet used the favorite feature. Try it !"
 msgstr "Vous n'avez pas encore utilisé la fonctionnalité Favoris. Essayez-là !"
 
-#: template/front/favourite-list.phtml:79
+#: template/front/favourite-list.phtml:91
+#: template/front/favourite-print.phtml:60
 msgid "You dont have access to this area - Permission denied"
 msgstr "Vous n'avez pas accès à cette zone - permission refusée"
 
-#: template/front/favourite-list.phtml:80
+#: template/front/favourite-list.phtml:92
+#: template/front/favourite-print.phtml:61
 msgid "You have to login first to be able to manage your favorites"
 msgstr "Vous devez vous connecter préalablement pour pouvoir gérer vos favoris"
 
-#: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:74
+#: template/front/favouritebar.phtml:52 template/front/favouritebar.phtml:116
 msgid "Add to Wishlist ?"
 msgstr "Ajout Favoris?"
 
-#: template/front/favouritebar.phtml:12 template/front/favouritebar.phtml:74
+#: template/front/favouritebar.phtml:52 template/front/favouritebar.phtml:116
 msgid "Whishlist !"
 msgstr "Ajouté !"
 
-#: template/front/favouritebar.phtml:40
+#: template/front/favouritebar.phtml:80
 msgid "Remove favourite"
 msgstr "Supprimer le favori"
 
-#: template/front/favouritebar.phtml:40
+#: template/front/favouritebar.phtml:80
 msgid "Declare as favourite"
 msgstr "Ajouter aux favoris"
 
-#: template/front/favouritebar.phtml:63
+#: template/front/favouritebar.phtml:103
 msgid "login/register"
 msgstr "connexion/s'inscrire"
+
+#~ msgid "You will find below the list of items you picked up as favorite, for later usage "
+#~ msgstr "Vous trouverez ci-dessous la liste des éléments que vous avez sélectionné comme favoris, pour une utilisation ultérieure"
+
+#~ msgid "More"
+#~ msgstr "Plus"
