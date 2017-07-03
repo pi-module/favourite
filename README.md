@@ -3,7 +3,7 @@ Favorite
 
 Favorite module
 
-La page des favoris utilise le template favourite-list.phtml.
-Pour chaque onglet, on utilise le template partial/favourite-list.phtml.
-Ce template partial peut être étendu par module afin de personnaliser l'affichage des favoris par module.
-Ex : Les templates partial/favourite-list.phtml sont présents dans les modules guide / news / event et permettent de personnaliser l'affichage de chacun de ces onglets
+Favourites per module are displayed into Tabs.
+By default, the favourite tab layout uses the partial/favourite-list.phtml template.
+You can override this default template by using a custom per module partial/favourite-list.phtml
+Ex : in news/event, you can find custom templates stored as partial/favourite-list.phtml, those make the tabs fit better to the module's content/data types.
