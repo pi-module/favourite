@@ -79,3 +79,39 @@ msgstr ""
 
 msgid "to"
 msgstr ""
+
+msgid "Favourite contribution items"
+msgstr ""
+
+msgid "Favourite business items"
+msgstr ""
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Guide"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Image"
+msgstr ""
+
+msgid "Nom"
+msgstr ""
+
+msgid "Category"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Website"
+msgstr ""
