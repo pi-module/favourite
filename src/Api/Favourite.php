@@ -216,6 +216,9 @@ class Favourite extends AbstractApi
                     $row->delete();
                     // flush cache
                     Pi::service('cache')->flush('module', $params['to']);
+                    if ($params['to'] == 'news') {
+                        Pi::service('cache')->flush('module', 'event');
+                    }
                     // Set return
                     $return['is'] = 0;
                     $return['status'] = 1;
@@ -240,6 +243,9 @@ class Favourite extends AbstractApi
                     $row->save();
                     // flush cache
                     Pi::service('cache')->flush('module', $params['to']);
+                    if ($params['to'] == 'news') {
+                        Pi::service('cache')->flush('module', 'event');
+                    }
                     // Set return
                     $return['is'] = 1;
                     $return['status'] = 1;
