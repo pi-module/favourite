@@ -24,7 +24,7 @@
                     <?php 
                         $count = 0;
                         foreach ($favourites as $favourite) {
-                            $count += count($favourite['list']);
+                            $count += $favourite['total_item'];
                         }
                     ?>
                     <div class="favourite-count">

@@ -40,6 +40,7 @@ class Favourite extends AbstractApi
                 'moreUrl' => '#',
                 'printUrl' => '#',
             );
+            $item['total_item'] = count($item['list']);
             $list[] = $item;
         }
         
@@ -60,6 +61,7 @@ class Favourite extends AbstractApi
                 'moreUrl' => '#',
                 'printUrl' => '#',
             );
+            $item['total_item'] = count($item['list']);
             $list[] = $item;
         }
         
@@ -80,6 +82,7 @@ class Favourite extends AbstractApi
                 'moreUrl' => '#',
                 'printUrl' => '#',
             );
+            $item['total_item'] = count($item['list']['free']) + count($item['list']['commercial']) + count($item['list']['person']);
             $list[] = $item;
         }
         
@@ -101,6 +104,7 @@ class Favourite extends AbstractApi
                 'moreUrl' => '#',
                 'printUrl' => '#',
             );
+            $item['total_item'] = count($item['list']);
             $list[] = $item;
         }
         
