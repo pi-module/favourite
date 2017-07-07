@@ -34,7 +34,7 @@ class Favourite extends AbstractApi
         if (Pi::service('module')->isActive('news')) {
             $item = array(
                 'name' => 'news',
-                'title' => 'News',
+                'title' => __('News'),
                 'list' => Pi::api('story', 'news')->FavoriteList(),
                 'message' => sprintf(__('You have not yet picked up items in %s module'), 'News'),
                 'moreUrl' => '#',
@@ -55,7 +55,7 @@ class Favourite extends AbstractApi
         if (Pi::service('module')->isActive('shop')) {
             $item = array(
                 'name' => 'shop',
-                'title' => 'Shop',
+                'title' => __('Shop'),
                 'list' => Pi::api('product', 'shop')->FavoriteList(),
                 'message' => sprintf(__('You have not yet picked up items in %s module'), 'Shop'),
                 'moreUrl' => '#',
@@ -76,7 +76,7 @@ class Favourite extends AbstractApi
         if (Pi::service('module')->isActive('guide')) {
             $item = array(
                 'name' => 'guide',
-                'title' => 'Guide',
+                'title' => __('Guide'),
                 'list' => Pi::api('item', 'guide')->FavoriteList(),
                 'message' => sprintf(__('You have not yet picked up items in %s module'), 'Guide'),
                 'moreUrl' => '#',
@@ -98,7 +98,7 @@ class Favourite extends AbstractApi
         if (Pi::service('module')->isActive('event')) {
             $item = array(
                 'name' => 'event',
-                'title' => 'Event',
+                'title' => __('Event'),
                 'list' => Pi::api('event', 'event')->FavoriteList(),
                 'message' => sprintf(__('You have not yet picked up event in %s module'), 'Event'),
                 'moreUrl' => '#',

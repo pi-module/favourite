@@ -42,7 +42,7 @@
                                 <?php $first = false; ?>
                                 <a aria-expanded="true" href="#" data-toggle="tab"
                                    data-target="#panel-<?php echo $this->escape($favourite['name']); ?>">
-                                    <?php _e($favourite['title']); ?>
+                                    <?php echo $favourite['title']; ?>
                                 </a>
                             </li>
                         <?php } ?>
