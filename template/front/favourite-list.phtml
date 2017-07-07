@@ -24,7 +24,7 @@
                     <?php 
                         $count = 0;
                         foreach ($favourites as $favourite) {
-                            $count += count($favourite['list']);
+                            $count += $favourite['total_item'];
                         }
                     ?>
                     <div class="favourite-count">
@@ -42,7 +42,7 @@
                                 <?php $first = false; ?>
                                 <a aria-expanded="true" href="#" data-toggle="tab"
                                    data-target="#panel-<?php echo $this->escape($favourite['name']); ?>">
-                                    <?php echo $this->escape($favourite['title']); ?>
+                                    <?php echo $favourite['title']; ?>
                                 </a>
                             </li>
                         <?php } ?>
@@ -72,7 +72,7 @@
                                        target="_blank"><i class="fa fa-print"></i> <?php _e('Print favourite list'); ?></a>
                                 </div>
                                 <?php } else { ?>
-                                    <div class="well">
+                                    <div>
                                         <?php echo $this->escape($favourite['message']); ?>
                                     </div>
                                 <?php } ?>

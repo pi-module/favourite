@@ -27,13 +27,6 @@ if(Pi::service('user')) {
         'class' => 'img-circle',
     ));
 
-    $isChecked = false;
-    foreach ($checkinList as $user) {
-        if($user['id'] == $currentUser['id']){
-            $isChecked = true;
-        }
-    }
-
     $isLiked = false;
     foreach ($favouriteList as $user) {
         if($user['id'] == $currentUser['id']){

@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Favourite\n"
-"POT-Creation-Date: 2017-07-03 22:36+0200\n"
+"POT-Creation-Date: 2017-07-06 15:10+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Marc Desrousseaux\n"
 "Language-Team: Marc\n"
@@ -26,7 +26,7 @@ msgstr "Vous n'avez pas encore sélectionné d'élément dans le module %s"
 msgid "You have not yet picked up event in %s module"
 msgstr "Vous n'avez pas encore sélectionné d'évènement dans le module %s"
 
-#: src/Api/Favourite.php:199 src/Api/Favourite.php:250
+#: src/Api/Favourite.php:199 src/Api/Favourite.php:256
 msgid "Error to make favourite"
 msgstr "Une erreur est survenue lors de la création du favori"
 
@@ -34,15 +34,15 @@ msgstr "Une erreur est survenue lors de la création du favori"
 msgid "Please login for make favourite"
 msgstr "Merci de vous connecter pour ajouter un favori"
 
-#: src/Api/Favourite.php:226
+#: src/Api/Favourite.php:229
 msgid "Error to set your favorite"
 msgstr "Impossible d'enregistrer votre favoris"
 
-#: src/Api/Favourite.php:227
+#: src/Api/Favourite.php:230
 msgid "Item not active"
 msgstr "L'élément n'est pas actif"
 
-#: src/Api/Favourite.php:251
+#: src/Api/Favourite.php:257
 #, php-format
 msgid "You can make favourite after %s second"
 msgstr "Vous pouvez ajouter un favoris dans %s secondes"
