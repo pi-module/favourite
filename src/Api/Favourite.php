@@ -82,7 +82,7 @@ class Favourite extends AbstractApi
                 'moreUrl' => '#',
                 'printUrl' => '#',
             );
-            $item['total_item'] = count($item['list']['free']) + count($item['list']['commercial']) + count($item['list']['person']);
+            $item['total_item'] = count($item['list']['free']) + count($item['list']['commercial']);
             $list[] = $item;
         }
         
