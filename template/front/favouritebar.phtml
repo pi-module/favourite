@@ -98,10 +98,17 @@ $onclick = sprintf($onclick,
 ?>
 
 <div class="favouritebar text-center <?php echo $favouriteClass; ?>">
-    <a class="<?php echo $favourite['iconclass']; ?>" data-toggle="tooltip" data-placement="top"
+    <a class="<?php echo $favourite['iconclass']; ?>" 
        rel="noindex,nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
-       id="<?php echo $favourite['htmlId']; ?>" onclick="<?php echo $onclick; ?>">
+       id="<?php echo $favourite['htmlId']; ?>"  
+        <?php if(Pi::user()->config('enable_modal')) { ?> 
+             data-action="login" data-toggle="modal" data-target="#loginRegisterModal"  
+         <?php } else { ?> 
+             data-toggle="tooltip" data-placement="top"
+             onclick="<?php echo $onclick; ?>" 
+         <?php } ?>> 
+
         <?php if ($favourite['icon']) { ?>
         <i class="fa <?php echo $favourite['icon']; ?>"></i>
         <?php } ?>
