@@ -102,12 +102,12 @@ $onclick = sprintf($onclick,
        rel="noindex,nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>"  
-        <?php if(Pi::user()->config('enable_modal')) { ?> 
+       <?php if (Pi::user()->getId() || !Pi::user()->config('enable_modal')) { ?>
+           data-toggle="tooltip" data-placement="top"
+           onclick="<?php echo $onclick; ?>" 
+       <?php } else  { ?> 
              data-action="login" data-toggle="modal" data-target="#loginRegisterModal"  
-         <?php } else { ?> 
-             data-toggle="tooltip" data-placement="top"
-             onclick="<?php echo $onclick; ?>" 
-         <?php } ?>> 
+       <?php } ?>> 
 
         <?php if ($favourite['icon']) { ?>
         <i class="fa <?php echo $favourite['icon']; ?>"></i>
