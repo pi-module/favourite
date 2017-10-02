@@ -28,9 +28,11 @@ if(Pi::service('user')) {
     ));
 
     $isLiked = false;
-    foreach ($favouriteList as $user) {
-        if($user['id'] == $currentUser['id']){
-            $isLiked = true;
+    if (isset($favouriteList)) {
+        foreach ($favouriteList as $user) {
+            if($user['id'] == $currentUser['id']){
+                $isLiked = true;
+            }
         }
     }
 }
