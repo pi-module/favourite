@@ -8,8 +8,7 @@
 var favoritePopoverTimeoutHandle;
 
 function setFavourite(file, item, table, module, title, modalEnabled, loginLinkLabel) {
-
-    var modalEnabled = (typeof modalEnabled == 'undefined') ? false : true;
+    var modalEnabled = (typeof modalEnabled == 'undefined') ? false : modalEnabled == 'true';
     var loginLinkLabel = (typeof loginLinkLabel == 'undefined') ? 'login/register' : loginLinkLabel;
 
     $('.itemUserActivityUser.liked').toggleClass('hide');
@@ -31,6 +30,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
                 clearTimeout(favoritePopoverTimeoutHandle);
 
                 var content = result.message;
+
 
                 if(modalEnabled){
                     content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#loginRegisterModal">'+loginLinkLabel+'</button></div>';
