@@ -176,6 +176,14 @@ class Favourite extends AbstractApi
         }
         return 0;
     }
+    
+    public function getCount($uid)
+    {
+        $where = array('uid' => $uid);
+        $select = Pi::model('list', 'favourite')->select()->where($where);
+        $count = Pi::model('list', 'favourite')->selectWith($select)->count();
+        return $count;
+    }
 
     public function userFavourite($uid, $module, $limit = 0)
     {
