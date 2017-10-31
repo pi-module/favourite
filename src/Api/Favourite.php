@@ -252,6 +252,7 @@ class Favourite extends AbstractApi
                     $row->module = $params['to'];
                     $row->ip = Pi::user()->getIp();
                     $row->time_create = time();
+                    $row->source = 'WEB';
                     $row->save();
                     // flush cache
                     Pi::service('cache')->flush('module', $params['to']);
