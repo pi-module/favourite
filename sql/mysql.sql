@@ -6,6 +6,7 @@ CREATE TABLE `{list}` (
     `module` varchar(64) NOT NULL default '',
     `ip` char(15) NOT NULL default '',
     `time_create` int(10) unsigned NOT NULL default '0',
+     `source` ENUM ("WEB", "MOBILE") NOT NULL DEFAULT  'WEB',
     PRIMARY KEY (`id`),
     KEY `module` (`module`),
     KEY `table` (`table`),
