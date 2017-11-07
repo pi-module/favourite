@@ -36,5 +36,6 @@ return array(
         'permission' => 'permission.php',
         'page' => 'page.php',
         'navigation' => 'navigation.php',
+        'user' => 'user.php',
     ),
 );
