@@ -17,7 +17,7 @@ return array(
     // Activity
     'activity' => array(
         'favourite'    => array(
-            'title' => _a('Favorites'),
+            'title' => _a('Favourites'),
             'callback'  => 'Module\Favourite\Plugin\Favourite',
             'template' => 'user-favourite',
             'icon'  => '',
