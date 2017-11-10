@@ -26,7 +26,7 @@ use Pi\Application\Api\AbstractApi;
 
 class Favourite extends AbstractApi
 {
-    private function listFavouriteNews()
+    private function listFavouriteNews($uid = null)
     {
         $list = array();
 
@@ -35,7 +35,7 @@ class Favourite extends AbstractApi
             $item = array(
                 'name' => 'news',
                 'title' => __('News'),
-                'list' => Pi::api('story', 'news')->FavoriteList(),
+                'list' => Pi::api('story', 'news')->FavoriteList($uid),
                 'message' => sprintf(__('You have not yet picked up items in %s module'), 'News'),
                 'moreUrl' => '#',
                 'printUrl' => '#',
@@ -47,7 +47,7 @@ class Favourite extends AbstractApi
         return $list;
     }
     
-    private function listFavouriteShop()
+    private function listFavouriteShop($uid = null)
     {
         $list = array();
 
@@ -56,7 +56,7 @@ class Favourite extends AbstractApi
             $item = array(
                 'name' => 'shop',
                 'title' => __('Shop'),
-                'list' => Pi::api('product', 'shop')->FavoriteList(),
+                'list' => Pi::api('product', 'shop')->FavoriteList($uid),
                 'message' => sprintf(__('You have not yet picked up items in %s module'), 'Shop'),
                 'moreUrl' => '#',
                 'printUrl' => '#',
@@ -68,7 +68,7 @@ class Favourite extends AbstractApi
         return $list;
     }
     
-    private function listFavouriteGuide()
+    private function listFavouriteGuide($uid = null)
     {
         $list = array();
 
@@ -77,7 +77,7 @@ class Favourite extends AbstractApi
             $item = array(
                 'name' => 'guide',
                 'title' => __('Guide'),
-                'list' => Pi::api('item', 'guide')->FavoriteList(),
+                'list' => Pi::api('item', 'guide')->FavoriteList($uid),
                 'message' => sprintf(__('You have not yet picked up items in %s module'), 'Guide'),
                 'moreUrl' => '#',
                 'printUrl' => '#',
@@ -89,7 +89,7 @@ class Favourite extends AbstractApi
         return $list;
     }
     
-    private function listFavouriteEvent()
+    private function listFavouriteEvent($uid = null)
     {
         $list = array();
 
@@ -99,7 +99,7 @@ class Favourite extends AbstractApi
             $item = array(
                 'name' => 'event',
                 'title' => __('Event'),
-                'list' => Pi::api('event', 'event')->FavoriteList(),
+                'list' => Pi::api('event', 'event')->FavoriteList($uid),
                 'message' => sprintf(__('You have not yet picked up event in %s module'), 'Event'),
                 'moreUrl' => '#',
                 'printUrl' => '#',
@@ -132,13 +132,13 @@ class Favourite extends AbstractApi
     }
     
     
-    public function listFavourite()
+    public function listFavourite($uid = null)
     {
         $list = array();
-        $list = array_merge($list, $this->listFavouriteGuide());
-        $list = array_merge($list, $this->listFavouriteEvent());
-        $list = array_merge($list, $this->listFavouriteNews());
-        $list = array_merge($list, $this->listFavouriteShop());
+        $list = array_merge($list, $this->listFavouriteGuide($uid));
+        $list = array_merge($list, $this->listFavouriteEvent($uid));
+        $list = array_merge($list, $this->listFavouriteNews($uid));
+        $list = array_merge($list, $this->listFavouriteShop($uid));
         return $list;
     }
 
@@ -175,6 +175,14 @@ class Favourite extends AbstractApi
             return 1;
         }
         return 0;
+    }
+    
+    public function getCount($uid)
+    {
+        $where = array('uid' => $uid);
+        $select = Pi::model('list', 'favourite')->select()->where($where);
+        $count = Pi::model('list', 'favourite')->selectWith($select)->count();
+        return $count;
     }
 
     public function userFavourite($uid, $module, $limit = 0)
@@ -244,6 +252,7 @@ class Favourite extends AbstractApi
                     $row->module = $params['to'];
                     $row->ip = Pi::user()->getIp();
                     $row->time_create = time();
+                    $row->source = 'WEB';
                     $row->save();
                     // flush cache
                     Pi::service('cache')->flush('module', $params['to']);

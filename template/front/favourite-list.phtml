@@ -4,23 +4,12 @@
         <?php include $this->templateModule('front/user-profile-sidebar.phtml', 'user'); ?>
     </div>
     <div class="col-md-9">
-        <div class="page-header clearfix">
+        <div class="page-header">
             <h1><?php echo $this->escape($title); ?></h1>
         </div>
         <?php if ($uid > 0) { ?>
             <div class="favourite-box clearfix">
-                <div class="col-md-9">
-    
-                    <div class="favourite-avatar pull-left"><?php echo $user['avatar']; ?></div>
-                    <div class="favourite-text pull-left">
-                        <h2>
-                            <a title="<?php echo $user['name']; ?>" href="<?php echo $user['profileUrl']; ?>">
-                                <?php echo $user['name']; ?>
-                            </a>
-                        </h2>
-                    </div>
-                </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-md-offset-9">
                     <?php 
                         $count = 0;
                         foreach ($favourites as $favourite) {
