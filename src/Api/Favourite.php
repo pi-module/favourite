@@ -158,7 +158,7 @@ class Favourite extends AbstractApi
                 'class' => 'img-circle',
             ));
             $user['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', array(
-                'id' => $user['id'],
+                'id' => isset($user['id']) ? $user['id'] : null,
             )));
             $list[$row->id] = $user;
         }
