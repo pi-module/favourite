@@ -48,6 +48,7 @@
                                     <?php
                                         $favouriteList = $favourite['list'];
                                         $favouriteName = $favourite['name']; 
+                                        $isProfil = false;
                                         
                                         $partial = $this->templateModule('front/partial/favourite-list.phtml',  $favourite['name']);
                                         if ($partial) {

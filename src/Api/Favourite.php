@@ -154,11 +154,11 @@ class Favourite extends AbstractApi
             // Get user info
             $user = Pi::user()->get($row->uid, array('id', 'identity', 'name', 'email'));
             $user['avatar'] = Pi::service('user')->avatar($row->uid, 'small', array(
-                'alt' => $user['name'],
+                'alt' => isset($user['name']) ? $user['name'] : '',
                 'class' => 'img-circle',
             ));
             $user['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', array(
-                'id' => $user['id'],
+                'id' => isset($user['id']) ? $user['id'] : null,
             )));
             $list[$row->id] = $user;
         }

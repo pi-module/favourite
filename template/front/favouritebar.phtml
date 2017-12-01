@@ -30,7 +30,7 @@ if(Pi::service('user')) {
     $isLiked = false;
     if (isset($favouriteList)) {
         foreach ($favouriteList as $user) {
-            if($user['id'] == $currentUser['id']){
+            if(isset($user['id']) && isset($currentUser['id']) && $user['id'] == $currentUser['id']){
                 $isLiked = true;
             }
         }
@@ -144,8 +144,8 @@ $onclick = sprintf($onclick,
         <?php $i = 1; ?>
         <?php foreach ($favouriteList as $user) { ?>
             <?php if ($i < 3) { ?>
-                <li class="itemUserActivityUser <?php if($currentUser && $user['id'] == $currentUser['id']) : ?>liked<?php endif; ?>">
-                    <a title="<?php echo $user['name']; ?>" href="<?php echo $user['profileUrl']; ?>">
+                <li class="itemUserActivityUser <?php if($currentUser && isset($user['id']) && isset($currentUser['id']) && $user['id'] == $currentUser['id']) : ?>liked<?php endif; ?>">
+                    <a title="<?php echo isset($user['name']) ? $user['name'] : ''; ?>" href="<?php echo $user['profileUrl']; ?>">
                         <?php echo $user['avatar']; ?>
                     </a>
                 </li>
