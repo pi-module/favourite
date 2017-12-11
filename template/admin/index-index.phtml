@@ -14,8 +14,11 @@
         <?php foreach ($list as $vote) { ?>
             <tr>
                 <td><?php echo $this->escape($vote['id']); ?></td>
-                <td><?php echo $this->escape($vote['user']['identity']); ?>
-                    (<?php echo $this->escape($vote['user']['id']); ?>)
+                <td>
+                    <a href="<?php echo  Pi::url(Pi::service('user')->getUrl('profile',$vote['user']['id'])); ?>">
+                        <?php echo $this->escape($vote['user']['name']); ?>
+                        (<?php echo $this->escape($vote['user']['id']); ?>)
+                    </a>
                 </td>
                 <td><?php echo $this->escape($vote['module']); ?></td>
                 <td><?php echo $this->escape($vote['table']); ?></td>

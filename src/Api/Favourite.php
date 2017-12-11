@@ -279,7 +279,7 @@ class Favourite extends AbstractApi
         $where = array('item' => $params['item'], 'table' => $params['table'], 'module' => $params['to']);
         $select = Pi::model('list', $this->getModule())->select()->where($where);
         $count = Pi::model('list', $this->getModule())->selectWith($select)->count();
-        Pi::model($params['table'], $params['to'])->update(array('favourite' => $count), array('id' => $params['item']));
+        Pi::model($params['table'], $params['to'] == 'event' ? 'news' : $params['to'])->update(array('favourite' => $count), array('id' => $params['item']));
     }
 
     protected function checkDelay($uid, $time)
