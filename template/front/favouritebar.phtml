@@ -101,7 +101,7 @@ $onclick = sprintf($onclick,
 
 <div class="favouritebar text-center <?php echo $favouriteClass; ?>">
     <a class="<?php echo $favourite['iconclass']; ?>" 
-       rel="noindex,nofollow"
+       rel="nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>"  
        <?php if (Pi::user()->getId() || !Pi::user()->config('enable_modal')) { ?>
