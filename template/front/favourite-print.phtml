@@ -3,66 +3,66 @@
 
 $this->css(
     $this->assetModule('css/print.css'),
-    array('media' => "all")
+    ['media' => "all"]
 );
 $this->css(
     Pi::url('public/vendor/bootstrap/css/bootstrap.min.css'),
-    array('media' => "all")
+    ['media' => "all"]
 );
 ?>
 <!DOCTYPE HTML>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title><?php _e('Print favourite list'); ?></title>
-    </head>
-    <!--  onload="window.print()" -->
-    <body onload="window.print()">
-        <div id="print">
-        <div class="page-header clearfix">
-            <h4><?php echo $this->escape($title); ?></h4>
-        </div>
-            <div class="clearfix row">
-                <div class="col-md-12">
-                    <?php if ($uid > 0) { ?>
-                        <?php if (!empty($favourites)) { ?>
-                            <?php foreach ($favourites as $favourite) { ?>
-                                <div class="tab-pane<?php if ($favourite['name'] == 'news') {
-                                    echo ' active';
-                                } ?>" id="panel-<?php echo $this->escape($favourite['name']); ?>">
-                                    <?php if (!empty($favourite['list'])) { ?>
-                                        <?php
-                                            $favouriteList = $favourite['list'];
-                                            $partial = $this->templateModule('front/partial/favourite-list.phtml',  $favourite['name']);
-                                            if ($partial) {
-                                            } else {
-                                                $partial = $this->template('front/partial/favourite-list.phtml');
-                                            }
-                                            include $partial;
-                                        ?>
-                                    <?php } else { ?>
-                                        <div class="well">
-                                            <h2><?php echo $this->escape($favourite['title']); ?></h2>
-                                            <?php echo $this->escape($favourite['message']); ?>
-                                        </div>
-                                    <?php } ?>
+<head>
+    <meta charset="utf-8">
+    <title><?php _e('Print favourite list'); ?></title>
+</head>
+<!--  onload="window.print()" -->
+<body onload="window.print()">
+<div id="print">
+    <div class="page-header clearfix">
+        <h4><?php echo $this->escape($title); ?></h4>
+    </div>
+    <div class="clearfix row">
+        <div class="col-md-12">
+            <?php if ($uid > 0) { ?>
+                <?php if (!empty($favourites)) { ?>
+                    <?php foreach ($favourites as $favourite) { ?>
+                        <div class="tab-pane<?php if ($favourite['name'] == 'news') {
+                            echo ' active';
+                        } ?>" id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                            <?php if (!empty($favourite['list'])) { ?>
+                                <?php
+                                $favouriteList = $favourite['list'];
+                                $partial       = $this->templateModule('front/partial/favourite-list.phtml', $favourite['name']);
+                                if ($partial) {
+                                } else {
+                                    $partial = $this->template('front/partial/favourite-list.phtml');
+                                }
+                                include $partial;
+                                ?>
+                            <?php } else { ?>
+                                <div class="well">
+                                    <h2><?php echo $this->escape($favourite['title']); ?></h2>
+                                    <?php echo $this->escape($favourite['message']); ?>
                                 </div>
                             <?php } ?>
-                        
-                        <?php } else { ?>
-                            <div class="alert alert-danger" role="alert">
-                                <h4><?php _e('There is no favorite to display'); ?></h4>
-                                <p><?php _e('You have not yet used the favorite feature. Try it !'); ?></p>
-                            </div>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <div class="alert alert-danger" role="alert">
-                            <h4><?php _e('You dont have access to this area - Permission denied'); ?></h4>
-                            <p><?php _e('You have to login first to be able to manage your favorites'); ?></p>
                         </div>
                     <?php } ?>
+
+                <?php } else { ?>
+                    <div class="alert alert-danger" role="alert">
+                        <h4><?php _e('There is no favorite to display'); ?></h4>
+                        <p><?php _e('You have not yet used the favorite feature. Try it !'); ?></p>
+                    </div>
+                <?php } ?>
+            <?php } else { ?>
+                <div class="alert alert-danger" role="alert">
+                    <h4><?php _e('You dont have access to this area - Permission denied'); ?></h4>
+                    <p><?php _e('You have to login first to be able to manage your favorites'); ?></p>
                 </div>
-            </div>
+            <?php } ?>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>

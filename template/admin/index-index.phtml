@@ -15,7 +15,7 @@
             <tr>
                 <td><?php echo $this->escape($vote['id']); ?></td>
                 <td>
-                    <a href="<?php echo  Pi::url(Pi::service('user')->getUrl('profile',$vote['user']['id'])); ?>">
+                    <a href="<?php echo Pi::url(Pi::service('user')->getUrl('profile', $vote['user']['id'])); ?>">
                         <?php echo $this->escape($vote['user']['name']); ?>
                         (<?php echo $this->escape($vote['user']['id']); ?>)
                     </a>

@@ -10,20 +10,21 @@
         <?php if ($uid > 0) { ?>
             <div class="row favourite-box clearfix">
                 <div class="col-md-3 col-md-offset-9">
-                    <?php 
-                        $count = 0;
-                        foreach ($favourites as $favourite) {
-                            $count += $favourite['total_item'];
-                        }
+                    <?php
+                    $count = 0;
+                    foreach ($favourites as $favourite) {
+                        $count += $favourite['total_item'];
+                    }
                     ?>
                     <div class="favourite-count">
-                        <strong><i class="fa fa-check"></i> <?php _e('Favorites'); ?></strong> : <?php echo _number($count); ?>
+                        <strong><i class="fa fa-check"></i> <?php _e('Favorites'); ?></strong>
+                        : <?php echo _number($count); ?>
                     </div>
-                   
+
                 </div>
             </div>
             <?php if (!empty($favourites)) { ?>
-                 <div class="panel-heading">
+                <div class="panel-heading">
                     <ul class="nav nav-tabs pi-panel-tab-indicators">
                         <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
@@ -39,28 +40,31 @@
                 </div>
                 <div class=" pi-panel-tab">
                     <div class="panel-body tab-content">
-                        
+
                         <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
-                                <div class="tab-pane <?php echo $first ? 'active' : '' ?> " id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                            <div class="tab-pane <?php echo $first ? 'active' : '' ?> "
+                                 id="panel-<?php echo $this->escape($favourite['name']); ?>">
                                 <?php $first = false; ?>
                                 <?php if (!empty($favourite['list'])) { ?>
                                     <?php
-                                        $favouriteList = $favourite['list'];
-                                        $favouriteName = $favourite['name']; 
-                                        $isProfil = false;
-                                        
-                                        $partial = $this->templateModule('front/partial/favourite-list.phtml',  $favourite['name']);
-                                        if ($partial) {
-                                        } else {
-                                            $partial = $this->template('front/partial/favourite-list.phtml');
-                                        }
-                                        include $partial;
+                                    $favouriteList = $favourite['list'];
+                                    $favouriteName = $favourite['name'];
+                                    $isProfil      = false;
+
+                                    $partial = $this->templateModule('front/partial/favourite-list.phtml', $favourite['name']);
+                                    if ($partial) {
+                                    } else {
+                                        $partial = $this->template('front/partial/favourite-list.phtml');
+                                    }
+                                    include $partial;
                                     ?>
-                                <div class="clearfix text-center">
-                                    <a class="btn btn-success" title="<?php _e('Print'); ?>" href="<?php echo Pi::url($this->url('', array('controller' => 'print', 'action' => '', 'type' => $favouriteName ))); ?>"
-                                       target="_blank"><i class="fa fa-print"></i> <?php _e('Print favourite list'); ?></a>
-                                </div>
+                                    <div class="clearfix text-center">
+                                        <a class="btn btn-success" title="<?php _e('Print'); ?>"
+                                           href="<?php echo Pi::url($this->url('', ['controller' => 'print', 'action' => '', 'type' => $favouriteName])); ?>"
+                                           target="_blank"><i
+                                                    class="fa fa-print"></i> <?php _e('Print favourite list'); ?></a>
+                                    </div>
                                 <?php } else { ?>
                                     <div>
                                         <?php echo $this->escape($favourite['message']); ?>

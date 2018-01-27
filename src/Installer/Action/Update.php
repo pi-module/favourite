@@ -10,6 +10,7 @@
 /**
  * @author Frédéric TISSOT <contact@espritdev.fr>
  */
+
 namespace Module\Favourite\Installer\Action;
 
 use Pi;
@@ -24,7 +25,7 @@ class Update extends BasicUpdate
     protected function attachDefaultListeners()
     {
         $events = $this->events;
-        $events->attach('update.pre', array($this, 'updateSchema'));
+        $events->attach('update.pre', [$this, 'updateSchema']);
         parent::attachDefaultListeners();
 
         return $this;
@@ -38,28 +39,28 @@ class Update extends BasicUpdate
         $version = $e->getParam('version');
 
         // Set message model
-        $favouriteModel = Pi::model('list', 'favourite');
-        $favouriteTable = $favouriteModel->getTable();
+        $favouriteModel   = Pi::model('list', 'favourite');
+        $favouriteTable   = $favouriteModel->getTable();
         $favouriteAdapter = $favouriteModel->getAdapter();
 
-         $status = true;
+        $status = true;
         if (version_compare($version, '1.2.4', '<')) {
-           // Alter table field `identity`
+            // Alter table field `identity`
             $table = Pi::db()->prefix('list', 'favourite');
-            $sql = sprintf("ALTER TABLE %s ADD `source` ENUM ('WEB', 'MOBILE') NOT NULL DEFAULT  'WEB';", $table);
-            
+            $sql   = sprintf("ALTER TABLE %s ADD `source` ENUM ('WEB', 'MOBILE') NOT NULL DEFAULT  'WEB';", $table);
+
             try {
                 $favouriteAdapter->query($sql, 'execute');
             } catch (\Exception $exception) {
-                $this->setResult('db', array(
-                    'status' => false,
+                $this->setResult('db', [
+                    'status'  => false,
                     'message' => 'Table alter query failed: '
                         . $exception->getMessage(),
-                ));
+                ]);
                 return false;
-            }            
+            }
         }
-        
+
         if (version_compare($version, '1.2.6', '<')) {
             // Alter table field `identity`
             if (Pi::service('module')->isActive('event')) {

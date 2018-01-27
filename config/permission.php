@@ -10,18 +10,18 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // Admin section
-    'admin' => array(
-        'index' => array(
-            'title' => _a('Last favourite'),
-            'access' => array(//'admin',
-            ),
-        ),
-        'tools' => array(
-            'title' => _a('Tools'),
-            'access' => array(//'admin',
-            ),
-        ),
-    ),
-);
+    'admin' => [
+        'index' => [
+            'title'  => _a('Last favourite'),
+            'access' => [//'admin',
+            ],
+        ],
+        'tools' => [
+            'title'  => _a('Tools'),
+            'access' => [//'admin',
+            ],
+        ],
+    ],
+];

@@ -32,8 +32,8 @@ function setFavourite(file, item, table, module, icon, modalEnabled, loginLinkLa
 
                 var content = result.message;
 
-                if(modalEnabled){
-                    content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#loginRegisterModal">'+loginLinkLabel+'</button></div>';
+                if (modalEnabled) {
+                    content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</button></div>';
                 }
 
                 var link = $('#favourite-' + module + '-' + table + '-' + item);

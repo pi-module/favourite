@@ -31,21 +31,21 @@
     padding: 10px;
 }
 
-.page-header{
+.page-header {
     padding-bottom: 5px
 }
 
 .favourites .well {
-    background:transparent;
-    border:none;
+    background: transparent;
+    border: none;
 }
 
 .favorite-nopadding {
-    padding :0!important;
+    padding: 0 !important;
 }
 
 .favouritebar-btn {
-    width:100%;
+    width: 100%;
 }
 
 .favouritebar .btn-success {
@@ -79,20 +79,24 @@
 }
 
 .favouritebar a {
-    text-decoration: none; 
-    color:#51514F; 
-    cursor:pointer;
+    text-decoration: none;
+    color: #51514F;
+    cursor: pointer;
 }
+
 .itemUserActivityItem {
-    margin-top:10px;
+    margin-top: 10px;
 }
-.favouritebar{
-    margin-bottom:10px; 
-    border:1px solid #b7b7b7;
+
+.favouritebar {
+    margin-bottom: 10px;
+    border: 1px solid #b7b7b7;
 }
 
 .favouritebar .btn {
-    width:100%
+    width: 100%
 }
 
-.favourite h5 {margin-top:0}
+.favourite h5 {
+    margin-top: 0
+}

@@ -10,25 +10,25 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
-    'admin' => array(
-        'last' => array(
-            'label' => _a('Last favourite'),
-            'permission' => array(
+return [
+    'admin' => [
+        'last'  => [
+            'label'      => _a('Last favourite'),
+            'permission' => [
                 'resource' => 'index',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'index',
-            'action' => 'index',
-        ),
-        'tools' => array(
-            'label' => _a('Tools'),
-            'permission' => array(
+            'action'     => 'index',
+        ],
+        'tools' => [
+            'label'      => _a('Tools'),
+            'permission' => [
                 'resource' => 'tools',
-            ),
-            'route' => 'admin',
+            ],
+            'route'      => 'admin',
             'controller' => 'tools',
-            'action' => 'index',
-        ),
-    ),
-);
+            'action'     => 'index',
+        ],
+    ],
+];

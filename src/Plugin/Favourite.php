@@ -9,30 +9,30 @@
 
 namespace Module\Favourite\Plugin;
 
-use Pi;
 use Module\User\Api\AbstractActivityCallback;
+use Pi;
 
 class Favourite extends AbstractActivityCallback
 {
     public function __construct()
     {
-        
-    }   
-    
-    public function get($uid, $limit, $page = 1, $name = '') 
+
+    }
+
+    public function get($uid, $limit, $page = 1, $name = '')
     {
         $favourites = Pi::api('favourite', 'favourite')->listFavourite($uid);
-        $count = 0;
+        $count      = 0;
         foreach ($favourites as $favourite) {
             $count += $favourite['total_item'];
         }
-        
-        return array('favourites' => $favourites, 'count' => $count);
+
+        return ['favourites' => $favourites, 'count' => $count];
     }
-    
+
     public function getCount($uid)
     {
-        return Pi::api('favourite', 'favourite')->getCount($uid ? $uid : Pi::user()->getId());        
+        return Pi::api('favourite', 'favourite')->getCount($uid ? $uid : Pi::user()->getId());
     }
-    
+
 }

@@ -6,31 +6,31 @@
 <?php
 $currentUser = false;
 
-$avatar = Pi::service('user')->avatar(null, 'small', array(
-    'alt' => $currentUser['name'],
+$avatar = Pi::service('user')->avatar(null, 'small', [
+    'alt'   => $currentUser['name'],
     'class' => 'img-circle',
-));
+]);
 
-if(Pi::service('user')) {
-    $currentUser = Pi::user()->get(Pi::service('user')->getId(), array(
-        'id', 'identity', 'name'
-    ));
+if (Pi::service('user')) {
+    $currentUser = Pi::user()->get(Pi::service('user')->getId(), [
+        'id', 'identity', 'name',
+    ]);
 
-    if($currentUser){
-        $currentUser['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', array(
+    if ($currentUser) {
+        $currentUser['profileUrl'] = Pi::url(Pi::service('user')->getUrl('profile', [
             'id' => $currentUser['id'],
-        )));
+        ]));
     }
 
-    $avatar = Pi::service('user')->avatar(Pi::service('user')->getId(), 'small', array(
-        'alt' => $currentUser['name'],
+    $avatar = Pi::service('user')->avatar(Pi::service('user')->getId(), 'small', [
+        'alt'   => $currentUser['name'],
         'class' => 'img-circle',
-    ));
+    ]);
 
     $isLiked = false;
     if (isset($favouriteList)) {
         foreach ($favouriteList as $user) {
-            if(isset($user['id']) && isset($currentUser['id']) && $user['id'] == $currentUser['id']){
+            if (isset($user['id']) && isset($currentUser['id']) && $user['id'] == $currentUser['id']) {
                 $isLiked = true;
             }
         }
@@ -38,32 +38,32 @@ if(Pi::service('user')) {
 }
 
 // Load language file
-Pi::service('i18n')->load(array('module/favourite', 'default'));
+Pi::service('i18n')->load(['module/favourite', 'default']);
 // Set icon
 $configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
 switch ($configFavourite['favourite_icon']) {
     case 'wishlist':
-        $favourite['icon'] = ($favourite['is']) ? 'fa-check' : '';
-        $favourite['iconbar'] = ($favourite['is']) ? __('Add to Wishlist ?') : __('Whishlist !');
+        $favourite['icon']      = ($favourite['is']) ? 'fa-check' : '';
+        $favourite['iconbar']   = ($favourite['is']) ? __('Add to Wishlist ?') : __('Whishlist !');
         $favourite['iconclass'] = ($favourite['is']) ? 'favouritebar-btn btn btn-success' : 'favouritebar-btn btn btn-primary';
         break;
 
     case 'bookmark':
-        $favourite['icon'] = ($favourite['is']) ? 'fa-bookmark' : 'fa-bookmark-o';
-        $favourite['iconbar'] = 'bookmark';
+        $favourite['icon']      = ($favourite['is']) ? 'fa-bookmark' : 'fa-bookmark-o';
+        $favourite['iconbar']   = 'bookmark';
         $favourite['iconclass'] = 'favouritebar-icon';
         break;
 
     case 'heart':
-        $favourite['icon'] = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
-        $favourite['iconbar'] = 'heart';
+        $favourite['icon']      = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
+        $favourite['iconbar']   = 'heart';
         $favourite['iconclass'] = 'favouritebar-icon';
         break;
 
     case 'star':
     default:
-        $favourite['icon'] = ($favourite['is']) ? 'fa-star' : 'fa-star-o';
-        $favourite['iconbar'] = 'star';
+        $favourite['icon']      = ($favourite['is']) ? 'fa-star' : 'fa-star-o';
+        $favourite['iconbar']   = 'star';
         $favourite['iconclass'] = 'favouritebar-icon';
         break;
 }
@@ -85,7 +85,8 @@ if ($configFavourite['favourite_icon'] == 'wishlist') {
 $this->css($this->assetModule('script/favourite.css', 'favourite'));
 
 // Set onclick
-$onclick = <<<'EOT'
+$onclick
+         = <<<'EOT'
 setFavourite('%s', '%s', '%s', '%s', '%s', '%s', '%s');
 EOT;
 $onclick = sprintf($onclick,
@@ -100,19 +101,19 @@ $onclick = sprintf($onclick,
 ?>
 
 <div class="favouritebar text-center <?php echo $favouriteClass; ?>">
-    <a class="<?php echo $favourite['iconclass']; ?>" 
+    <a class="<?php echo $favourite['iconclass']; ?>"
        rel="nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
-       id="<?php echo $favourite['htmlId']; ?>"  
-       <?php if (Pi::user()->getId() || !Pi::user()->config('enable_modal')) { ?>
-           data-toggle="tooltip" data-placement="top"
-           onclick="<?php echo $onclick; ?>" 
-       <?php } else  { ?> 
-             data-action="login" data-toggle="modal" data-target="#loginRegisterModal"  
-       <?php } ?>> 
+       id="<?php echo $favourite['htmlId']; ?>"
+        <?php if (Pi::user()->getId() || !Pi::user()->config('enable_modal')) { ?>
+            data-toggle="tooltip" data-placement="top"
+            onclick="<?php echo $onclick; ?>"
+        <?php } else { ?>
+            data-action="login" data-toggle="modal" data-target="#loginRegisterModal"
+        <?php } ?>>
 
         <?php if ($favourite['icon']) { ?>
-        <i class="fa <?php echo $favourite['icon']; ?>"></i>
+            <i class="fa <?php echo $favourite['icon']; ?>"></i>
         <?php } ?>
         <?php if ($configFavourite['favourite_icon'] == 'wishlist') {
             echo ($favourite['is']) ? __('Whishlist !') : __('Add to Wishlist ?');
@@ -124,18 +125,19 @@ $onclick = sprintf($onclick,
         </div>
     <?php } ?>
 </div>
-<?php if(isset($favouriteList)) { ?>
+<?php if (isset($favouriteList)) { ?>
     <ul class="list-inline itemUserActivityItem text-center">
 
-        <?php if(!$currentUser) : ?>
+        <?php if (!$currentUser) : ?>
             <li class="itemUserActivityUser liked hide">
                 <?php echo $avatar; ?>
             </li>
         <?php endif; ?>
 
-        <?php if($currentUser && !$isLiked) : ?>
+        <?php if ($currentUser && !$isLiked) : ?>
             <li class="itemUserActivityUser liked hide">
-                <a title="<?php echo $currentUser['name']; ?>" href="<?php echo isset($currentUser['profileUrl']) ? $currentUser['profileUrl'] : '#'; ?>">
+                <a title="<?php echo $currentUser['name']; ?>"
+                   href="<?php echo isset($currentUser['profileUrl']) ? $currentUser['profileUrl'] : '#'; ?>">
                     <?php echo $avatar; ?>
                 </a>
             </li>
@@ -144,8 +146,9 @@ $onclick = sprintf($onclick,
         <?php $i = 1; ?>
         <?php foreach ($favouriteList as $user) { ?>
             <?php if ($i < 3) { ?>
-                <li class="itemUserActivityUser <?php if($currentUser && isset($user['id']) && isset($currentUser['id']) && $user['id'] == $currentUser['id']) : ?>liked<?php endif; ?>">
-                    <a title="<?php echo isset($user['name']) ? $user['name'] : ''; ?>" href="<?php echo $user['profileUrl']; ?>">
+                <li class="itemUserActivityUser <?php if ($currentUser && isset($user['id']) && isset($currentUser['id']) && $user['id'] == $currentUser['id']) : ?>liked<?php endif; ?>">
+                    <a title="<?php echo isset($user['name']) ? $user['name'] : ''; ?>"
+                       href="<?php echo $user['profileUrl']; ?>">
                         <?php echo $user['avatar']; ?>
                     </a>
                 </li>

@@ -18,14 +18,14 @@ use Pi\Mvc\Controller\ActionController;
 
 class PrintController extends ActionController
 {
-    
+
     public function indexAction()
     {
         $type = $this->params('type');
 
         $uid = Pi::user()->getId();
         // Set favourite
-        $favourites = array();
+        $favourites = [];
         if ($uid > 0) {
             $favourites = Pi::api('favourite', 'favourite')->listFavouriteModule($type);
         }
@@ -36,6 +36,6 @@ class PrintController extends ActionController
         $this->view()->assign('title', __('All your favorite'));
         $this->view()->assign('favourites', $favourites);
         $this->view()->assign('uid', $uid);
-        
+
     }
 }

@@ -13,15 +13,15 @@
  * @see Pi\Application\Installer\Resource\User
  * @author Taiwen Jiang <taiwenjiang@tsinghua.org.cn>
  */
-return array(
+return [
     // Activity
-    'activity' => array(
-        'favourite'    => array(
-            'title' => _a('Favourites'),
-            'callback'  => 'Module\Favourite\Plugin\Favourite',
+    'activity' => [
+        'favourite' => [
+            'title'    => _a('Favourites'),
+            'callback' => 'Module\Favourite\Plugin\Favourite',
             'template' => 'user-favourite',
-            'icon'  => '',
-            
-        )
-    ),
-);
+            'icon'     => '',
+
+        ],
+    ],
+];

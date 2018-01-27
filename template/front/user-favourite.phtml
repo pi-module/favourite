@@ -5,26 +5,26 @@
             <?php if ($count) {
                 foreach ($favourites as $favourite) { ?>
                     <div class="tab-pane" id="panel-<?php echo $this->escape($favourite['name']); ?>">
-                    <?php $first = false; ?>
-                    <?php if (!empty($favourite['list'])) { ?>
-                        <?php
+                        <?php $first = false; ?>
+                        <?php if (!empty($favourite['list'])) { ?>
+                            <?php
                             $favouriteList = $favourite['list'];
-                            $favouriteName = $favourite['name']; 
-                            $isProfil = true;
-                            $partial = $this->templateModule('front/partial/favourite-list.phtml',  $favourite['name']);
+                            $favouriteName = $favourite['name'];
+                            $isProfil      = true;
+                            $partial       = $this->templateModule('front/partial/favourite-list.phtml', $favourite['name']);
                             if ($partial) {
                             } else {
                                 $partial = $this->template('front/partial/favourite-list.phtml');
                             }
                             include $partial;
-                        ?>
-                    
-                    <?php } else { ?>
-                        <div>
-                            <?php echo $this->escape($favourite['message']); ?>
-                        </div>
-                    <?php } ?>
-                </div>
+                            ?>
+
+                        <?php } else { ?>
+                            <div>
+                                <?php echo $this->escape($favourite['message']); ?>
+                            </div>
+                        <?php } ?>
+                    </div>
                 <?php } ?>
             <?php } else { ?>
                 <div class="well">

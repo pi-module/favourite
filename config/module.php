@@ -10,32 +10,32 @@
 /**
  * @author Hossein Azizabadi <azizabadi@faragostaresh.com>
  */
-return array(
+return [
     // Module meta
-    'meta' => array(
-        'title' => _a('Favourite'),
+    'meta'     => [
+        'title'       => _a('Favourite'),
         'description' => _a('Favourite system'),
-        'version' => '1.2.6',
-        'license' => 'New BSD',
-        'logo' => 'image/logo.png',
-        'readme' => 'docs/readme.txt',
-        'demo' => 'http://pialog',
-        'icon' => 'fa-star',
-    ),
+        'version'     => '1.2.6',
+        'license'     => 'New BSD',
+        'logo'        => 'image/logo.png',
+        'readme'      => 'docs/readme.txt',
+        'demo'        => 'http://pialog',
+        'icon'        => 'fa-star',
+    ],
     // Author information
-    'author' => array(
-        'Name' => 'Hossein Azizabadi',
-        'email' => 'azizabadi@faragostaresh.com',
+    'author'   => [
+        'Name'    => 'Hossein Azizabadi',
+        'email'   => 'azizabadi@faragostaresh.com',
         'website' => 'http://pialog',
-        'credits' => 'Pi Engine Team'
-    ),
+        'credits' => 'Pi Engine Team',
+    ],
     // Resource
-    'resource' => array(
-        'database' => 'database.php',
-        'config' => 'config.php',
+    'resource' => [
+        'database'   => 'database.php',
+        'config'     => 'config.php',
         'permission' => 'permission.php',
-        'page' => 'page.php',
+        'page'       => 'page.php',
         'navigation' => 'navigation.php',
-        'user' => 'user.php',
-    ),
-);
+        'user'       => 'user.php',
+    ],
+];
