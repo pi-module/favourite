@@ -77,9 +77,9 @@ $favourite['tooltip'] = ($favourite['is']) ? __('Remove favourite') : __('Declar
 $this->jQuery();
 // Load js files
 if ($configFavourite['favourite_icon'] == 'wishlist') {
-    $this->js($this->assetModule('script/favourite.wishlist.js', 'favourite'));
+    $this->js($this->assetModule('script/favourite.wishlist.js', 'favourite'), array('defer' => 'defer'));
 } else {
-    $this->js($this->assetModule('script/favourite.js', 'favourite'));
+    $this->js($this->assetModule('script/favourite.js', 'favourite'), array('defer' => 'defer'));
 }
 // Load css files
 $this->css($this->assetModule('script/favourite.css', 'favourite'));
