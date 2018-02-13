@@ -1,24 +1,8 @@
 <?php
 // Load css files
+$this->css(array($this->assetModule('css/front.css', 'favourite') => array('defer' => 'defer')));
+$this->css(array($this->assetModule('script/favourite.css', 'favourite') => array('defer' => 'defer')));
 ?>
-
-<noscript id="deferred-favourite">
-    <link rel="stylesheet" type="text/css" href="<?php echo $this->assetModule('css/front.css', 'favourite') ?>"/>
-    <link rel="stylesheet" type="text/css" href="<?php echo $this->assetModule('script/favourite.css', 'favourite') ?>"/>
-</noscript>
-<script>
-    var loadDeferredFavourite = function() {
-        var addStylesNode = document.getElementById("deferred-favourite");
-        var replacement = document.createElement("div");
-        replacement.innerHTML = addStylesNode.textContent;
-        document.body.appendChild(replacement)
-        addStylesNode.parentElement.removeChild(addStylesNode);
-    };
-    var rafFavourite = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
-        window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    if (rafFavourite) rafFavourite(function() { window.setTimeout(loadDeferredFavourite, 0); });
-    else window.addEventListener('load', loadDeferredFavourite);
-</script>
 
 <?php if (empty($favourite)) {
     return;
