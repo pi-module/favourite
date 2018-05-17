@@ -13,6 +13,7 @@
 
 namespace Module\Favourite\Api;
 
+use Hybridauth\Exception\Exception;
 use Pi;
 use Pi\Application\Api\AbstractApi;
 
@@ -217,60 +218,71 @@ class Favourite extends AbstractApi
             if ($config['favourite_delay']) {
                 $delay = $this->checkDelay($uid, $config['favourite_delay']);
             }
+
             if ($delay) {
                 // user favourite to this item ?
                 $where    = ['uid' => $uid, 'item' => $params['item'], 'table' => $params['table'], 'module' => $params['to']];
                 $select   = Pi::model('list', $this->getModule())->select()->where($where)->limit(1);
                 $row_list = Pi::model('list', $this->getModule())->selectWith($select)->toArray();
-                if (!empty($row_list)) {
-                    // Remove 
-                    $row = Pi::model('list', $this->getModule())->find($row_list[0]['id']);
-                    $row->delete();
-                    // flush cache
-                    Pi::service('cache')->flush('module', $params['to']);
-                    if ($params['to'] == 'news') {
-                        Pi::service('cache')->flush('module', 'event');
-                    }
-                    // Set return
-                    $return['is']     = 0;
-                    $return['status'] = 1;
-                } else {
-                    if ($params['table'] == 'item' && $params['to'] == 'guide') {
-                        $item = Pi::model('item', 'guide')->find($params['item']);
-                        if (!$item || $item->status != 1) {
-                            $return['title']   = __('Error to set your favorite');
-                            $return['message'] = __('Item not active');
-                            $return['status']  = 0;
-                            return $return;
+
+
+                try{
+                    if (!empty($row_list)) {
+                        // Remove
+                        $row = Pi::model('list', $this->getModule())->find($row_list[0]['id']);
+                        $row->delete();
+                        // flush cache
+//                    Pi::service('cache')->flush('module', $params['to']);
+//                    if ($params['to'] == 'news') {
+//                        Pi::service('cache')->flush('module', 'event');
+//                    }
+                        // Set return
+                        $return['is']     = 0;
+                        $return['status'] = 1;
+                    } else {
+                        if ($params['table'] == 'item' && $params['to'] == 'guide') {
+                            $item = Pi::model('item', 'guide')->find($params['item']);
+                            if (!$item || $item->status != 1) {
+                                $return['title']   = __('Error to set your favorite');
+                                $return['message'] = __('Item not active');
+                                $return['status']  = 0;
+                                return $return;
+                            }
                         }
+                        // Add
+                        $row              = Pi::model('list', $this->getModule())->createRow();
+                        $row->uid         = $uid;
+                        $row->item        = $params['item'];
+                        $row->table       = $params['table'];
+                        $row->module      = $params['to'];
+                        $row->ip          = Pi::user()->getIp();
+                        $row->time_create = time();
+                        $row->source      = 'WEB';
+                        $row->save();
+                        // flush cache
+//                    Pi::service('cache')->flush('module', $params['to']);
+//                    if ($params['to'] == 'news') {
+//                        Pi::service('cache')->flush('module', 'event');
+//                    }
+                        // Set return
+                        $return['is']     = 1;
+                        $return['status'] = 1;
                     }
-                    // Add
-                    $row              = Pi::model('list', $this->getModule())->createRow();
-                    $row->uid         = $uid;
-                    $row->item        = $params['item'];
-                    $row->table       = $params['table'];
-                    $row->module      = $params['to'];
-                    $row->ip          = Pi::user()->getIp();
-                    $row->time_create = time();
-                    $row->source      = 'WEB';
-                    $row->save();
-                    // flush cache
-                    Pi::service('cache')->flush('module', $params['to']);
-                    if ($params['to'] == 'news') {
-                        Pi::service('cache')->flush('module', 'event');
-                    }
-                    // Set return
-                    $return['is']     = 1;
-                    $return['status'] = 1;
+                    // Update module item table
+                    $this->saveFavourite($params);
+                }catch(\Exception $e){
+                    echo $e->getMessage();
+                    die();
                 }
-                // Update module item table
-                $this->saveFavourite($params);
+
+
             } else {
                 $return['title']   = __('Error to make favourite');
                 $return['message'] = sprintf(__('You can make favourite after %s second'), $config['favourite_delay']);
                 $return['status']  = 0;
             }
         }
+
         return $return;
     }
 
@@ -279,7 +291,7 @@ class Favourite extends AbstractApi
         $where  = ['item' => $params['item'], 'table' => $params['table'], 'module' => $params['to']];
         $select = Pi::model('list', $this->getModule())->select()->where($where);
         $count  = Pi::model('list', $this->getModule())->selectWith($select)->count();
-        Pi::model($params['table'], $params['to'] == 'event' ? 'news' : $params['to'])->update(['favourite' => $count], ['id' => $params['item']]);
+        Pi::model($params['table'] == 'extra' ? 'story' : $params['table'], $params['to'] == 'event' ? 'news' : $params['to'])->update(['favourite' => $count], ['id' => $params['item']]);
     }
 
     protected function checkDelay($uid, $time)
