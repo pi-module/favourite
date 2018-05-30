@@ -209,7 +209,7 @@ class Favourite extends AbstractApi
         // Get user
         $uid = Pi::user()->getId();
         if ($uid == 0) {
-            $return['title']   = __('Error to make favourite');
+            $return['title']   = __('Add to favourite');
             $return['message'] = __('Please login for make favourite');
             $return['status']  = 0;
         } else {
