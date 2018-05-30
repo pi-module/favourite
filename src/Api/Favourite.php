@@ -27,7 +27,7 @@ use Pi\Application\Api\AbstractApi;
 
 class Favourite extends AbstractApi
 {
-    private function listFavouriteNews($uid = null)
+    public function listFavouriteNews($uid = null)
     {
         $list = [];
 
@@ -48,7 +48,7 @@ class Favourite extends AbstractApi
         return $list;
     }
 
-    private function listFavouriteShop($uid = null)
+    public function listFavouriteShop($uid = null)
     {
         $list = [];
 
@@ -69,7 +69,7 @@ class Favourite extends AbstractApi
         return $list;
     }
 
-    private function listFavouriteGuide($uid = null)
+    public function listFavouriteGuide($uid = null)
     {
         $list = [];
 
@@ -90,7 +90,7 @@ class Favourite extends AbstractApi
         return $list;
     }
 
-    private function listFavouriteEvent($uid = null)
+    public function listFavouriteEvent($uid = null)
     {
         $list = [];
 
