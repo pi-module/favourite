@@ -86,6 +86,23 @@ if ($configFavourite['favourite_icon'] == 'wishlist') {
     $this->js($this->assetModule('script/favourite.js', 'favourite'), array('defer' => 'defer'));
 }
 
+/**
+ * AJAX MODE
+ */
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
+{
+    /** @var Pi\View\Helper\HeadScript $headScript */
+    $headScript = $this->plugin('headScript');
+    foreach($headScript as $head){
+        if(preg_match('#module-favourite#', $head->attributes['src'])){
+            echo '<script src="'.$head->attributes['src'].'"></script>';
+        }
+    }
+
+    echo $this->plugin('headLink');
+    echo $this->plugin('footScript');
+}
+
 
 // Set onclick
 $onclick
