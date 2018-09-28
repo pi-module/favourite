@@ -4,7 +4,7 @@
             <p>&nbsp;</p>
             <?php if ($count) {
                 foreach ($favourites as $favourite) { ?>
-                    <div class="tab-pane" id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                    <div class="tab-pane" id="card-<?php echo $this->escape($favourite['name']); ?>">
                         <?php $first = false; ?>
                         <?php if (!empty($favourite['list'])) { ?>
                             <?php
@@ -27,7 +27,7 @@
                     </div>
                 <?php } ?>
             <?php } else { ?>
-                <div class="well">
+                <div class="card card-body bg-light mb-3">
                     <?php _e('No data available.'); ?>
                 </div>
             <?php } ?>

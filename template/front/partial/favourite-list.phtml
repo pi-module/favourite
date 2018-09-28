@@ -2,7 +2,7 @@
     <?php foreach ($favouriteList as $list) { ?>
         <li class="list-group-item">
             <?php if (!empty($list['image'])) { ?>
-                <img class="img-rounded"
+                <img class="rounded"
                      src="<?php echo $this->escape($list['image']); ?>"
                      alt="<?php echo $this->escape($list['title']); ?>">
             <?php } ?>
