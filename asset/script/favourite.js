@@ -7,7 +7,11 @@
  */
 var favoritePopoverTimeoutHandle;
 
-function setFavourite(file, item, table, module, icon, modalEnabled, loginLinkLabel, link = null) {
+function setFavourite(file, item, table, module, icon, modalEnabled, loginLinkLabel, link) {
+
+    if(typeof link == 'undefined'){
+        link = null;
+    }
 
     var modalEnabled = (typeof modalEnabled == 'undefined') ? false : modalEnabled == 'true';
     var loginLinkLabel = (typeof loginLinkLabel == 'undefined') ? 'login/register' : loginLinkLabel;
