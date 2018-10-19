@@ -24,27 +24,27 @@
                 </div>
             </div>
             <?php if (!empty($favourites)) { ?>
-                <div class="panel-heading">
-                    <ul class="nav nav-tabs pi-panel-tab-indicators">
+                <div class="card-heading">
+                    <ul class="nav nav-tabs pi-card-tab-indicators">
                         <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
                             <li class="<?php echo $first ? 'active' : '' ?>">
                                 <?php $first = false; ?>
                                 <a aria-expanded="true" href="#" data-toggle="tab"
-                                   data-target="#panel-<?php echo $this->escape($favourite['name']); ?>">
+                                   data-target="#card-<?php echo $this->escape($favourite['name']); ?>">
                                     <?php echo $favourite['title']; ?>
                                 </a>
                             </li>
                         <?php } ?>
                     </ul>
                 </div>
-                <div class=" pi-panel-tab">
-                    <div class="panel-body tab-content">
+                <div class=" pi-card-tab">
+                    <div class="card-body tab-content">
 
                         <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
                             <div class="tab-pane <?php echo $first ? 'active' : '' ?> "
-                                 id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                                 id="card-<?php echo $this->escape($favourite['name']); ?>">
                                 <?php $first = false; ?>
                                 <?php if (!empty($favourite['list'])) { ?>
                                     <?php

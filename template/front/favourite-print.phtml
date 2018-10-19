@@ -29,7 +29,7 @@ $this->css(
                     <?php foreach ($favourites as $favourite) { ?>
                         <div class="tab-pane<?php if ($favourite['name'] == 'news') {
                             echo ' active';
-                        } ?>" id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                        } ?>" id="card-<?php echo $this->escape($favourite['name']); ?>">
                             <?php if (!empty($favourite['list'])) { ?>
                                 <?php
                                 $favouriteList = $favourite['list'];
@@ -41,7 +41,7 @@ $this->css(
                                 include $partial;
                                 ?>
                             <?php } else { ?>
-                                <div class="well">
+                                <div class="card card-body bg-light mb-3">
                                     <h2><?php echo $this->escape($favourite['title']); ?></h2>
                                     <?php echo $this->escape($favourite['message']); ?>
                                 </div>
