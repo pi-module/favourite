@@ -47,26 +47,26 @@ Pi::service('i18n')->load(['module/favourite', 'default']);
 $configFavourite = Pi::service('registry')->config->read('favourite', 'favourite');
 switch ($configFavourite['favourite_icon']) {
     case 'wishlist':
-        $favourite['icon']      = ($favourite['is']) ? 'fa-check' : '';
+        $favourite['icon']      = ($favourite['is']) ? 'fas fa-check' : '';
         $favourite['iconbar']   = ($favourite['is']) ? __('Add to Wishlist ?') : __('Whishlist !');
         $favourite['iconclass'] = ($favourite['is']) ? 'favouritebar-btn btn btn-success' : 'favouritebar-btn btn btn-primary';
         break;
 
     case 'bookmark':
-        $favourite['icon']      = ($favourite['is']) ? 'fa-bookmark' : 'fa-bookmark-o';
+        $favourite['icon']      = ($favourite['is']) ? 'fas fa-bookmark' : 'far fa-bookmark';
         $favourite['iconbar']   = 'bookmark';
         $favourite['iconclass'] = 'favouritebar-icon';
         break;
 
     case 'heart':
-        $favourite['icon']      = ($favourite['is']) ? 'fa-heart' : 'fa-heart-o';
+        $favourite['icon']      = ($favourite['is']) ? 'fas fa-heart' : 'far fa-heart';
         $favourite['iconbar']   = 'heart';
         $favourite['iconclass'] = 'favouritebar-icon';
         break;
 
     case 'star':
     default:
-        $favourite['icon']      = ($favourite['is']) ? 'fa-star' : 'fa-star-o';
+        $favourite['icon']      = ($favourite['is']) ? 'fas fa-star' : 'far fa-star';
         $favourite['iconbar']   = 'star';
         $favourite['iconclass'] = 'favouritebar-icon';
         break;
@@ -133,7 +133,7 @@ $onclick = sprintf($onclick,
         <?php } ?>>
 
         <?php if ($favourite['icon']) { ?>
-            <i class="fa <?php echo $favourite['icon']; ?>"></i>
+            <i class="<?php echo $favourite['icon']; ?>"></i>
         <?php } ?>
         <?php if ($configFavourite['favourite_icon'] == 'wishlist') {
             echo ($favourite['is']) ? __('Whishlist !') : __('Add to Wishlist ?');

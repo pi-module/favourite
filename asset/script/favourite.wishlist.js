@@ -21,7 +21,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
         success: function (result) {
             if (result.status == 1) {
                 if (result.is == 1) {
-                    $('#favourite-' + module + '-' + table + '-' + item).attr('class', 'btn btn-success').html('<i class="fa fa-check"></i> ' + title);
+                    $('#favourite-' + module + '-' + table + '-' + item).attr('class', 'btn btn-success').html('<i class="fas fa-check"></i> ' + title);
                 } else {
                     $('#favourite-' + module + '-' + table + '-' + item).attr('class', 'btn btn-primary').html(title);
                 }

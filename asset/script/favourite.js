@@ -26,9 +26,9 @@ function setFavourite(file, item, table, module, icon, modalEnabled, loginLinkLa
         success: function (result) {
             if (result.status == 1) {
                 if (result.is == 1) {
-                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fa fa-' + icon + '"></i>');
+                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fas fa-' + icon + '"></i>');
                 } else {
-                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fa fa-' + icon + '-o"></i>');
+                    $('#favourite-' + module + '-' + table + '-' + item).html('<i class="fas fa-' + icon + '-o"></i>');
                 }
             } else {
 
