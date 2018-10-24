@@ -28,9 +28,9 @@
                     <ul class="nav nav-tabs pi-card-tab-indicators">
                         <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
-                            <li class="<?php echo $first ? 'active' : '' ?>">
+                            <li class="nav-item">
                                 <?php $first = false; ?>
-                                <a aria-expanded="true" href="#" data-toggle="tab"
+                                <a aria-expanded="true" href="#" data-toggle="tab" class="nav-link <?php echo $first ? 'active' : '' ?> "
                                    data-target="#card-<?php echo $this->escape($favourite['name']); ?>">
                                     <?php echo $favourite['title']; ?>
                                 </a>
