@@ -11,7 +11,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
     var modalEnabled = (typeof modalEnabled == 'undefined') ? false : modalEnabled == 'true';
     var loginLinkLabel = (typeof loginLinkLabel == 'undefined') ? 'login/register' : loginLinkLabel;
 
-    $('.itemUserActivityUser.liked').toggleClass('hide');
+    $('.itemUserActivityUser.liked').toggleClass('d-none');
 
     $.ajax({
         type: "POST",
