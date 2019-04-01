@@ -148,12 +148,12 @@ $onclick = sprintf($onclick,
 <?php if (isset($favouriteList)) { ?>
     <ul class="list-inline itemUserActivityItem text-center">
         <?php if (!$currentUser) : ?>
-            <li class="list-inline-item itemUserActivityUser liked hide">
+            <li class="list-inline-item itemUserActivityUser liked d-none">
                 <?php echo $avatar; ?>
             </li>
         <?php endif; ?>
         <?php if ($currentUser && !$isLiked) : ?>
-            <li class="list-inline-item itemUserActivityUser liked hide">
+            <li class="list-inline-item itemUserActivityUser liked d-none">
                 <a title="<?php echo $currentUser['name']; ?>"
                    href="<?php echo isset($currentUser['profileUrl']) ? $currentUser['profileUrl'] : '#'; ?>">
                     <?php echo $avatar; ?>
@@ -173,7 +173,7 @@ $onclick = sprintf($onclick,
                 <?php $i++; ?>
             <?php } ?>
         <?php } ?>
-        <li class="list-inline-item itemUserActivityMore <?php if (count($favouriteList) <= 2) { ?>hide<?php } ?>">
+        <li class="list-inline-item itemUserActivityMore <?php if (count($favouriteList) <= 2) { ?>d-none<?php } ?>">
             <div data-toggle="modal" data-target="#favouriteModal">
                 ...
             </div>
