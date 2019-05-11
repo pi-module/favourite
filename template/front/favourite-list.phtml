@@ -9,7 +9,7 @@
         </div>
         <?php if ($uid > 0) { ?>
             <div class="row favourite-box clearfix">
-                <div class="col-md-3 col-md-offset-9">
+                <div class="col-md-3 offset-md-9">
                     <?php
                     $count = 0;
                     foreach ($favourites as $favourite) {
@@ -17,34 +17,35 @@
                     }
                     ?>
                     <div class="favourite-count">
-                        <strong><i class="fa fa-check"></i> <?php _e('Favorites'); ?></strong>
+                        <strong><i class="fas fa-check"></i> <?php _e('Favorites'); ?></strong>
                         : <?php echo _number($count); ?>
                     </div>
 
                 </div>
             </div>
             <?php if (!empty($favourites)) { ?>
-                <div class="panel-heading">
-                    <ul class="nav nav-tabs pi-panel-tab-indicators">
+                <div class="card-heading">
+                    <ul class="nav nav-tabs pi-card-tab-indicators">
                         <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
-                            <li class="<?php echo $first ? 'active' : '' ?>">
-                                <?php $first = false; ?>
-                                <a aria-expanded="true" href="#" data-toggle="tab"
-                                   data-target="#panel-<?php echo $this->escape($favourite['name']); ?>">
+                            <li class="nav-item">
+                                <a aria-expanded="true" href="#" data-toggle="tab" class="nav-link <?php echo $first ? 'active' : '' ?> "
+                                   data-target="#card-<?php echo $this->escape($favourite['name']); ?>">
                                     <?php echo $favourite['title']; ?>
                                 </a>
+                                <?php $first = false; ?>
+
                             </li>
                         <?php } ?>
                     </ul>
                 </div>
-                <div class=" pi-panel-tab">
-                    <div class="panel-body tab-content">
+                <div class=" pi-card-tab">
+                    <div class="card-body tab-content">
 
                         <?php $first = true; ?>
                         <?php foreach ($favourites as $favourite) { ?>
                             <div class="tab-pane <?php echo $first ? 'active' : '' ?> "
-                                 id="panel-<?php echo $this->escape($favourite['name']); ?>">
+                                 id="card-<?php echo $this->escape($favourite['name']); ?>">
                                 <?php $first = false; ?>
                                 <?php if (!empty($favourite['list'])) { ?>
                                     <?php
@@ -63,7 +64,7 @@
                                         <a class="btn btn-success" title="<?php _e('Print'); ?>"
                                            href="<?php echo Pi::url($this->url('', ['controller' => 'print', 'action' => '', 'type' => $favouriteName])); ?>"
                                            target="_blank"><i
-                                                    class="fa fa-print"></i> <?php _e('Print favourite list'); ?></a>
+                                                    class="fas fa-print"></i> <?php _e('Print favourite list'); ?></a>
                                     </div>
                                 <?php } else { ?>
                                     <div>

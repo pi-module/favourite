@@ -1,9 +1,9 @@
 /**
- * Pi Engine (http://pialog.org)
+ * Pi Engine (http://piengine.org)
  *
- * @link            http://code.pialog.org for the Pi Engine source repository
- * @copyright       Copyright (c) Pi Engine http://pialog.org
- * @license         http://pialog.org/license.txt New BSD License
+ * @link            http://code.piengine.org for the Pi Engine source repository
+ * @copyright       Copyright (c) Pi Engine http://piengine.org
+ * @license         http://piengine.org/license.txt New BSD License
  */
 var favoritePopoverTimeoutHandle;
 
@@ -11,7 +11,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
     var modalEnabled = (typeof modalEnabled == 'undefined') ? false : modalEnabled == 'true';
     var loginLinkLabel = (typeof loginLinkLabel == 'undefined') ? 'login/register' : loginLinkLabel;
 
-    $('.itemUserActivityUser.liked').toggleClass('hide');
+    $('.itemUserActivityUser.liked').toggleClass('d-none');
 
     $.ajax({
         type: "POST",
@@ -21,7 +21,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
         success: function (result) {
             if (result.status == 1) {
                 if (result.is == 1) {
-                    $('#favourite-' + module + '-' + table + '-' + item).attr('class', 'btn btn-success').html('<i class="fa fa-check"></i> ' + title);
+                    $('#favourite-' + module + '-' + table + '-' + item).attr('class', 'btn btn-success').html('<i class="fas fa-check"></i> ' + title);
                 } else {
                     $('#favourite-' + module + '-' + table + '-' + item).attr('class', 'btn btn-primary').html(title);
                 }
@@ -33,7 +33,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
 
 
                 if (modalEnabled) {
-                    content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</button></div>';
+                    content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</button></div>';
                 }
 
                 var link = $('#favourite-' + module + '-' + table + '-' + item);
