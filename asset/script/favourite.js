@@ -37,7 +37,7 @@ function setFavourite(file, item, table, module, icon, modalEnabled, loginLinkLa
                 var content = result.message;
 
                 if (modalEnabled) {
-                    content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</button></div>';
+                    content += '<div class="text-center"><a href="#" class="btn btn-primary btn-sm popover-connect" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</a></div>';
                 }
                 if (link == null) {
                    link = $('#favourite-' + module + '-' + table + '-' + item);
@@ -57,7 +57,14 @@ function setFavourite(file, item, table, module, icon, modalEnabled, loginLinkLa
 
                 setTimeout(function() {
                     link.popover('show');
-                },500);
+                    $('a.popover-connect').click(
+                        function()
+                        {
+                            link.popover('hide');
+                            $('#loginRegisterModal').modal('show');
+                        }
+                    )
+                }, 500);
 
                 favoritePopoverTimeoutHandle = setTimeout(function () {
                     link.popover('hide')

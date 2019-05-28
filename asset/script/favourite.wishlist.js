@@ -33,7 +33,8 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
 
 
                 if (modalEnabled) {
-                    content += '<div class="text-center"><button onclick="$(\'.popover-active\').popover(\'hide\')" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</button></div>';
+                    var linkLabel = "<?php _e('Login / Register') ?>";
+                    content += '<div class="text-center"><a href="#" class="btn btn-primary btn-sm popover-connect" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</a></div>';
                 }
 
                 var link = $('#favourite-' + module + '-' + table + '-' + item);
@@ -50,7 +51,16 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
 
                 $('.popover-active').not(link).popover('hide');
 
-                link.popover('show');
+                setTimeout(function() {
+                    link.popover('show');
+                    $('a.popover-connect').click(
+                        function()
+                        {
+                            link.popover('hide');
+                            $('#loginRegisterModal').modal('show');
+                        }
+                    )
+                }, 500);
 
                 favoritePopoverTimeoutHandle = setTimeout(function () {
                     link.popover('hide')
