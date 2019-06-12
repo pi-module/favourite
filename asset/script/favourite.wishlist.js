@@ -34,7 +34,7 @@ function setFavourite(file, item, table, module, title, modalEnabled, loginLinkL
 
                 if (modalEnabled) {
                     var linkLabel = "<?php _e('Login / Register') ?>";
-                    content += '<div class="text-center"><a href="#" class="btn btn-primary btn-sm popover-connect" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</a></div>';
+                    content += '<div class="text-center"><button type="button" class="btn btn-primary btn-sm popover-connect" data-toggle="modal" data-target="#loginRegisterModal">' + loginLinkLabel + '</button></div>';
                 }
 
                 var link = $('#favourite-' + module + '-' + table + '-' + item);

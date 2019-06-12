@@ -121,7 +121,7 @@ $onclick = sprintf($onclick,
 ?>
 
 <div class="favouritebar text-center <?php echo $favouriteClass; ?>">
-    <a class="<?php echo $favourite['iconclass']; ?>"
+    <button type="button" class="<?php echo $favourite['iconclass']; ?>"
        rel="nofollow"
        title="<?php echo $favourite['tooltip']; ?>"
        id="<?php echo $favourite['htmlId']; ?>"
@@ -138,7 +138,7 @@ $onclick = sprintf($onclick,
         <?php if ($configFavourite['favourite_icon'] == 'wishlist') {
             echo ($favourite['is']) ? __('Whishlist !') : __('Add to Wishlist ?');
         } ?>
-    </a>
+    </button>
     <?php if ($configFavourite['favourite_view_count'] && isset($favorite['count']) && $favorite['count']) { ?>
         <div class="favorite-count">
             <span class="badge badge-secondary"><?php echo _number($favorite['count']); ?></span>
