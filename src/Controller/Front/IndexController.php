@@ -45,6 +45,7 @@ class IndexController extends ActionController
                 $favourites = Pi::api('favourite', 'favourite')->listFavourite();
             }
             // Set view
+            $this->view()->headTitle(__('My Favourites'));
             $this->view()->headdescription(__('List of user favourites'), 'set');
             $this->view()->headkeywords(__('list,user,favourite,website'), 'set');
             $this->view()->setTemplate('favourite-list');
