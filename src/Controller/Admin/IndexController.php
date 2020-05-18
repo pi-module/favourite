@@ -40,7 +40,7 @@ class IndexController extends ActionController
             $list[$row->id]['user']        = Pi::user()->get($list[$row->id]['uid'], ['id', 'identity', 'name', 'email']);
         }
         // Set paginator
-        $count     = ['count' => new \Zend\Db\Sql\Predicate\Expression('count(*)')];
+        $count     = ['count' => new \Laminas\Db\Sql\Predicate\Expression('count(*)')];
         $select    = $this->getModel('list')->select()->where($where)->columns($count);
         $count     = $this->getModel('list')->selectWith($select)->current()->count;
         $paginator = Paginator::factory(intval($count));
